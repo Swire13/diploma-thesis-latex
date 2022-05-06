@@ -212,7 +212,26 @@ Rôzne komponenty prispievajú k rôznym typom umelej inteligencie. Medzi prvky 
 \paragraph{Spracovanie prirodzeného jazyka} umožňuje počítačom analyzovať, porozumieť a vytvárať ľudský jazyk vrátane reči.
 
 \subsection{Strojové učenie}
+Strojové učenie je aplikácia umelej inteligencie, ktorá umožňuje systémom učiť sa a zlepšovať sa na základe skúseností bez toho, aby boli explicitne naprogramované. Strojové učenie sa zameriava na vývoj počítačových programov, ktoré majú prístup k dátam a používajú ich na učenie sa. Podobne ako ľudský mozog, ktorý získava vedomosti aj strojové učenie sa pri porozumení entitám spolieha na vstupy, ako sú tréningové údaje alebo znalostné grafy. S definovanými entitami môže začať hlboké učenie.
+Proces strojového učenia sa začína pozorovaním alebo údajmi, ako sú príklady, historické údaje, priama skúsenosť alebo inštrukcie. Hľadá vzory v údajoch, aby mohol neskôr vyvodiť závery na základe poskytnutých príkladov. Primárnym cieľom ML je umožniť počítačom učiť sa bez nutnosti ľudského zásahu alebo asistencie a podľa toho prispôsobiť akcie.
 
+Termín „strojové učenie“ zaviedol Arthur Samuel, počítačový vedec z IBM a priekopník v oblasti umelej inteligencie. Samuel navrhol počítačový program na hru dámy, ktorý čím viac hral, tým viac sa učil zo skúseností vďaka použitiu algoritmov na vytváranie predpovedí. Ako disciplína strojové učenie skúma analýzu a konštrukciu algoritmov, ktoré sa môžu učiť z dát a predpovedať ich. Vďaka obrovskému množstvu výpočtových schopností za úlohou alebo viacerými špecifickými úlohami možno stroje trénovať na identifikáciu vzorcov a vzťahov medzi vstupnými údajmi a automatizáciu procesov.
+
+Systém učenia algoritmu strojového učenia môžeme rozdeliť na tri hlavné časti:
+\begin{itemize}
+    \item Rozhodovací proces: Vo všeobecnosti sa na predpovedanie alebo klasifikáciu používajú algoritmy strojového učenia. Na základe vstupných údajov, ktoré môžu byť označené alebo neoznačené algoritmus vytvorí odhad vzoru v dátach.
+    \item Chybová funkcia: Chybová funkcia slúži na vyhodnotenie predpovede modelu. Ak existujú známe príklady, chybová funkcia môže vykonať porovnanie na posúdenie presnosti modelu.
+    \item Proces optimalizácie modelu: Ak model môže lepšie zodpovedať dátovým bodom v trénovacej množine, potom sa váhy upravia tak, aby sa znížil nesúlad medzi známym príkladom a odhadom modelu. Algoritmus zopakuje tento proces vyhodnocovania a optimalizácie, pričom autonómne aktualizuje váhy, kým sa nedosiahne žiadaný prah presnosti.
+\end{itemize}
+
+Metódy strojového učenia môžeme rozdeliť na:
+\paragraph{Učenie pod dohľadom} je definované používaním označených súborov dát na trénovanie algoritmov, ktoré presne klasifikujú údaje alebo predpovedajú výsledky. Keď sa vstupné údaje vkladajú do modelu, model prispôsobuje svoje hmotnosti, kým nie je model správne prispôsobený. Dochádza k tomu ako súčasť procesu krížovej validácie, ktorý zabezpečí vhodné prispôsobenie modelu. Niektoré metódy používané v kontrolovanom učení zahŕňajú neurónové siete, lineárnu regresiu alebo podporný vektorový stroj (SVM).
+
+\paragraph{Učenie bez dozoru} využíva algoritmy strojového učenia na analýzu a zoskupovanie neoznačených množín údajov. Tieto algoritmy objavujú skryté vzory alebo zoskupenia údajov bez potreby ľudského zásahu. Jeho schopnosť objavovať podobnosti a rozdiely v informáciách z neho robí ideálne riešenie pre prieskumnú analýzu údajov, stratégie predaja, segmentáciu zákazníkov, rozpoznávanie obrazov a vzorov. Algoritmy používané v učení bez dozoru zahŕňajú neurónové siete alebo pravdepodobnostné metódy klastrovania.
+
+\paragraph{Učenie sa čiastočne pod dohľadom} ponúka balans medzi učením pod dohľadom a učením bez dozoru. Počas tréningu používa menšiu označenú množinu dát na usmernenie klasifikácie a extrakcie funkcií z väčšej neoznačenej množiny údajov. Učenie s čiastočným dohľadom môže vyriešiť problém nedostatku označených údajov na trénovanie algoritmu učenia pod dohľadom.
+
+Najčastejšie je možné nájsť aplikácie strojového učenia v rozpoznávaní reči, počítačovom videní, automatické obchodovanie alebo predikcie časových radov.
 
 \subsection{Hlboké učenie}
 Hlboké učenie je typ strojového učenia a umelej inteligencie, ktorý napodobňuje spôsob, akým ľudia získavajú určité typy vedomostí. Je dôležitým prvkom vedy o údajoch, ktorý zahŕňa štatistiku a prediktívne modelovanie. Je mimoriadne užitočný pre vedcov, ktorí majú za úlohu zbierať, analyzovať a interpretovať veľké množstvo údajov, nakoľko hlboké učenie robí tento proces rýchlejším a jednoduchším.
