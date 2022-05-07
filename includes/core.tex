@@ -37,6 +37,7 @@ Práve premenlivosť - prakticky hlavná vlastnosť počasia sa podpísala o to,
   \includegraphics[width=8cm]{img/numerical_prediction_model.png}
   \caption{Príklad numerického modelu zameraného na meranie vertikálneho pohybu atmosféry}
   \label{numModel}
+  \captionsource{Zdroj: }{???}
 \end{figure}
 
 \subsection{Počasie na Zemi}
@@ -64,6 +65,7 @@ Výkyvy teplôt sa na Zemi pohybujú od veľmi veľkých v suchom podnebí až p
   \includegraphics[width=8cm]{img/ozone.jpg}
   \caption{Ozónová vrstva Zeme}
   \label{numModel}
+  \captionsource{Zdroj: }{???}
 \end{figure}
 \newline Dôvod, prečo je tento plyn jedným zo základným predpokladom života je fakt, že ozón pohlcuje UV žiarenie Slnka, ktoré má škodlivé účinky na živé organizmy. V podsledných desaťročiach sa často spomína pojem ozónová diera, ktorá má za následok úbytok ozónu v atmosfére a to len na niektorých, presne lokalizovaných miestach, väčšinou nad územím severného a južného pólu. Tento jav je pozorovaný približne od 80. rokov minulého storočia a môže zaň najmä freón - uhľovodík, ktorý nahrádza atóm kyslíka za halové prvky ako napríklad flór alebo bróm. Po týchto zisteniach sa upustilo od používania freónov, vďaka čomu nastal proces revitalizácie ozónovej vrstvy, ktorý by mal byť ukončený v roku 2050.
 
@@ -82,6 +84,7 @@ Výkyvy teplôt sa na Zemi pohybujú od veľmi veľkých v suchom podnebí až p
   \includegraphics[width=8cm]{img/atmosphere.png}
   \caption{Atmosféra Zeme v závislosti s vývojom teploty}
   \label{numModel}
+  \captionsource{Zdroj: }{???}
 \end{figure}
 
 Ďalším spôsobom členenia je podľa homogenity vzduchu: 
@@ -141,6 +144,7 @@ Dôležitým parametrom, ktorý určuje dĺžku mesiacov ako na Marse tak aj na 
   \includegraphics[width=8cm]{img/orbit.png}
   \caption{Uhol naklonenia Marsu voči Slnku v rámci jednej rotácie planéty}
   \label{solarLS}
+  \captionsource{Zdroj: }{???}
 \end{figure}
 
 \begin{table}[!htbp]
@@ -178,12 +182,7 @@ Ls (stupne) & Udalosť                                       & Sezóna prachový
 \end{table}
 
 \newpage
-\subsection{Existujúce riešenia}
-Komplexný problém, akým predpoveď počasia nepochybne je by sa mohol na prvý pohľad zdať neriešiteľný z analytického pohľadu. Našťastie, existuje množstvo numerických algoritmov, ktorých cieľom je vyriešiť práve takéto typy problémov. 
-
-Jedným z možných riešení, ktoré je dostupné na internete pojednáva problematiku predikcie meteorologických veličín, konkrétne teploty za pomoci strojového učenia a to rôznymi modelmi. Na testovanie si autori vybrali päť rôznych modelov: CNN, GRU, LSTM, Stacked LSTM, CNN-LSTM. Tieto modely natrénovali a následne sledovali výstupné parametre: RMSE, MSE a MAE. O týchto parametroch budem písať viac v praktickej časti. V princípe, proces predpovede spočíval v príprave dát, zvolení knižníc, zvolení premenných, riešení problému s chýbajúcimi dátami a rozdelením dát na časť trénovaciu a časť testovaciu. Následne nastal proces trénovania vyššie spomínanými modelmi, ktoré po natrénovaní vykazovali určité hodnoty parametrov RMSE, MSE a MAE. Z týchto údajov sa dalo usúdiť, že výsledný, ktoré najviac inklinovali k reálnym hodnotám poskytoval model LSTM. Táto informácia iba potvrdila naše domnienky zo štúdii týchto modelov, že práve model LSTM preukazuje pri danom probléme najlepšie výsledky. 
-
-\subsection{Možnosti riešenia predpovede}
+\subsection{Predpoveď počasia}
 Zem je obalená atmosférou prevažne dusíka, kyslíka a vodnej pary. Vzduch pohybom priestorom nesie so sebou svoje vlastnosti a mení teplotu, vlhkosť, tlak a ostatné iné parametre a teda mení krátkodobý stav atmosféry - počasie. Počasie je teda vo svojej podstate vedľajším produktom našej atmosféry, ktorý prenáša teplo z jedného miesta na druhé.
 Ako sme písali v podsekcii \ref{atmosferaZeme}, výkyvy počasia sa menia s lokáciou, kde na Zemi sa práve nachádzame. Taktiež, ako opisujeme v podsekcii \ref{atmosferaMarsu}, atmosféra na planéte Mars je výrazne pokojnejšia a teda zmena počasia je takmer úplne prepojená s ročným obdobím na planéte.
 V tejto podsekcii chceme priblížiť vývoj predpovede počasia v histórii meraní.
@@ -202,9 +201,40 @@ V tejto podsekcii chceme priblížiť vývoj predpovede počasia v histórii mer
 
 \paragraph{Meteorologické merania zo satelitov a lietadiel} znamenal veľký prelom v meteorologických meraniach. Strednodobé predpovede, ktoré poskytujú informácie na päť až sedem dní vopred, ktoré boli predtým nemožné, začali satelity sprístupňovať globálne. Tieto predpovedné modely boli vyvinuté v americkom Národnom centre pre výskum atmosféry (NCAR), Európskom stredisku pre strednodobé predpovede počasia (ECMWF) a Národnom meteorologickom stredisku USA (NMC) a stali štandardom od 80. rokoch. Meteorologické satelity sa pohybujú po rôznych obežných dráhach a nesú širokú škálu senzorov. Sú dvoch základných typov: nízko letiaci polárny orbiter a geostacionárny orbiter. Kým prvý typ letí vo výške približne 700 kilometrov, druhý typ sa udržuje na orbite vo vzdialenosti približne 36 000 kilometrov. Práve technológia satelitov a celkovo vesmírneho inžinierstva nám umožnila aj tému tejto práce, ktorá pojednáva predikciu meteorologických veličín na inej planéte na základe údajov získavaných či už staticky z roverov na Marse alebo zo satelitov obiehajúcich okolo Marsu.
 
+Poznatky o atmosfére Marsu pôvodne pochádzali z teleskopických záznamov už v roku 1700; ale značne rozkvitla vo veku počítačových modelov a prieskumu kozmických lodí. Vývoj modelov globálnej cirkulácie na Marse má takmer rovnakú históriu ako globálny model Zeme a podobnosti opísané vyššie znamenajú, že mnohé zo základných techník modelovania majú blízke paralely.
 
 
+\paragraph{Poznatky o atmosfére Marsu} pôvodne pochádzali z teleskopických záznamov už v roku 1700. Väčší rozmach prišiel však až vo veku počítačových modelov a kozmickému výskumu. Vývoj modelov globálnej cirkulácie na Marse má takmer rovnakú históriu ako globálny model Zeme a mnohé zo základných techník modelovania majú blízke paralely. Meteorológia na Marse, ktorá sa v rámci slnečnej sústavy najviac podobá Zemi zahŕňa pozorovanie existencie oblakov nesúcich ľad, orografické oblaky tvorené pri pohoriach dôsledkom zdvíhania vzduchu do vyšších polôh alebo západné prúdy, ktoré sa tvoria vo vyšších zemepisných šírkach na oboch pologuliach.
 
+Jedným z kľúčových rozdielov medzi Zemou a Marsom je voda. Mnohé trhliny v reliéfe Marsu naznačujú históriu teplejšieho a vlhšieho sveta s tečúcimi riekami a zrážkami a teda aj s omnoho rozmanitejším počasím. Na obrázku \ref{duststorm} je možné vidieť prašnú búrku. Mars zažije každý rok veľa prašných búrok, z ktorých niektoré sa vyvinú do globálnych prašných búrok tak veľkých, že pohltia veľkú časť planéty.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/dust_storm_MARS.jpg}
+  \caption{Fotka z roku 2018 zachytená Mars Reconnaissance Orbiterom. V spodnej časti obrázku je viditeľná prašná búrka.}
+  \label{duststorm}
+  \captionsource{Zdroj: }{NASA/JPL-Caltech/Malin Space Science Systems}
+\end{figure}
+
+Obrázok \ref{circLS} nižšie zobrazuje cirkulačný vzor počas rôznych ročných období s červeným tieňovaním zodpovedajúcim pohybu cirkulácie v smere hodinových ručičiek a modrým tieňovaním zodpovedajúcim pohybu proti smeru hodinových ručičiek. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/MARS_circulation_openMars_LS.jpg}
+  \caption{Vzory strednej meridionálnej cirkulácie (MMC) v štyroch rôznych ročných obdobiach počas Marsovho roka}
+  \label{circLS}
+  \captionsource{Zdroj: }{OpenMARS database}
+\end{figure}
+
+Veľká časť počasia na Marse pripomína púšť na Zemi s opakujúcim sa vzorom teplejších dní a veľmi chladných nocí. Ďaleko od rovníka, najmä na zimnej pologuli, má Mars aj systémy vysokého a nízkeho tlaku, ktoré sú svojou veľkosťou veľmi podobné cyklónom a anticyklónam, ktoré zažívame. Samotný zimný pól je obklopený silným vírom, ktorý môžeme vidieť na obrázku \ref{circPolar} so zimným prúdom, ktorý riadi tieto poveternostné systémy okolo planéty a pohybuje sa zo západu na východ.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/MARS_circulation_openMars_polar.png}
+  \caption{Polárne projekcie časovo priemernej potenciálnej vírivosti vo výške 25 km nad povrchom nad a. severným a b. južným zimným pólom}
+  \label{circPolar}
+  \captionsource{Zdroj: }{OpenMARS database}
+\end{figure}
 
 \subsection{Umelá inteligencia}
 Spôsobov, ako definovať umelú inteligenciu je niekoľko. V princípe sa jedná o strojovú simuláciu procesov charakteristických pre ľudí a ich inteligenciu. Cieľom je, aby takto umelo vytvorená inteligencia bola schopná napodobňovať myseľ a činy ľudí. V konečnom dôsledku sa dá definovať umelá inteligencia ako technológia, ktorá stoje učí formou nadobúdania skúseností a prispôsobovaním sa novým vplyvom, prípadne učiť sa vykonávať repetitívne úlohy. V rámci repetitívnosti avšak narážame zároveň aj na definíciu hardvérom ovládanej robotickej automatizácie. Rozdiel spočíva v tom, že umelá inteligencia vykonáva takéto úlohy pomocou rôznych progresívnych algoritmoch učenia, čo spôsobuje jej nezávislosť od neustáleho ľudského zásahu.
@@ -301,8 +331,12 @@ $MSE = {\frac{1}{n}\sum_{i=1}^{n}(Y-\widehat{Y})^{2}}$
 \paragraph{RMSE} Stredná kvadratická chyba je jedným z najčastejšie používaných meradiel na hodnotenie kvality predpovedí. Ukazuje, ako vzdialene predpovede padajú od skutočných nameraných hodnôt pomocou euklidovskej vzdialenosti. Na výpočet RMSE je nutné vypočítať tzv. reziduum, teda rozdiel medzi predpoveďou a pravdivou hodnotou pre každý dátový bod, vypočítať normu rezidua pre každý dátový bod, vypočítať priemer rezíduí a vypočítať druhú odmocninu tohto priemeru. RMSE sa bežne používa v aplikáciách, kde máme k dispozícii aj reálne dáta, nakoľko RMSE používa a potrebuje skutočné merania v každom predpovedanom údajovom bode. Pri strojovom učení je mimoriadne užitočné mať jedno číslo na posúdenie výkonu modelu, či už počas tréningu alebo validácie. RMSE je jedným z najpoužívanejších parametrov na tento účel. \newline
 $RMSE = \sqrt{MSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(Y-\widehat{Y})^{2}}$
 
-
 \newpage
+
+\subsection{Existujúce riešenia}
+Komplexný problém, akým predpoveď počasia nepochybne je by sa mohol na prvý pohľad zdať neriešiteľný z analytického pohľadu. Našťastie, existuje množstvo numerických algoritmov, ktorých cieľom je vyriešiť práve takéto typy problémov. 
+
+Jedným z možných riešení, ktoré je dostupné na internete pojednáva problematiku predikcie meteorologických veličín, konkrétne teploty za pomoci strojového učenia a to rôznymi modelmi. Na testovanie si autori vybrali päť rôznych modelov: CNN, GRU, LSTM, Stacked LSTM, CNN-LSTM. Tieto modely natrénovali a následne sledovali výstupné parametre: RMSE, MSE a MAE. O týchto parametroch budem písať viac v praktickej časti. V princípe, proces predpovede spočíval v príprave dát, zvolení knižníc, zvolení premenných, riešení problému s chýbajúcimi dátami a rozdelením dát na časť trénovaciu a časť testovaciu. Následne nastal proces trénovania vyššie spomínanými modelmi, ktoré po natrénovaní vykazovali určité hodnoty parametrov RMSE, MSE a MAE. Z týchto údajov sa dalo usúdiť, že výsledný, ktoré najviac inklinovali k reálnym hodnotám poskytoval model LSTM. Táto informácia iba potvrdila naše domnienky zo štúdii týchto modelov, že práve model LSTM preukazuje pri danom probléme najlepšie výsledky. 
 
 \section{Praktická časť}
 
