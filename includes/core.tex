@@ -300,27 +300,119 @@ Na vytvorenie kvalitných modelov hlbokého učenia možno použiť rôzne metó
 
 
 \subsubsection{Modely hlbokého učenia}
+V rámci modelov hlbokého učenia primárne rozdelujeme dve kategórie:
+\begin{itemize}
+  \item učenie s učitelom alebo učenie pod dohľadom (supervised learning)
+  \item učenie bez učitela alebo učenie bez dozoru (unsupervised learning)
+\end{itemize}
+
+
+
+Najpodstatnejší rozdiel v týchto dvoch prístupov je v tom, ako sú modely trénované. Zatiaľ čo modely pod dohľadom sú trénované prostredníctvom príkladov konkrétneho súboru dát, modely bez dozoru dostávajú iba vstupné údaje a nemajú stanovený výsledok, z ktorého by sa mohli poučiť. Takže výsledok, ktorý sa snažíme predpovedať, nie je v modeli bez dozoru. V princípe ide o to, že v modeloch bez dozoru nepoznáme výsledok, ktorý sa snažíme predpovedať, zatiaľ čo modely pod dohľadom áno. Pri učení pod dohľadom sa zároveň využíva prístup úloh ako je regresia alebo klasifikácia za účelom vytvorenia vzorca, modely bez dozoru majú učenie založené na zoskupovaní a asociačných pravidlách.
+
+Príklady modelov učenia pod dohľadom:
+\begin{itemize}
+  \item klasické neurónové siete: Klasické neurónové siete možno tiež označiť ako viacvrstvové perceptróny. Jeho jedinečná povaha mu umožňuje prispôsobiť sa základným binárnym vzorcom prostredníctvom série vstupov, ktoré simulujú vzorce učenia ľudského mozgu. Viacvrstvový perceptrón je klasický model neurónovej siete pozostávajúci z viac ako 2 vrstiev. Sú používané pri súboroch dát formátovaných do stĺpcov a riadkov alebo klasifikačných a regresných problémov so skutočnými údajmi na vstupe.
+  \item konvolučné neurónové siete: Schopnejšia a pokročilejšia variácia klasických umelých neurónových sietí. Je postavená tak, aby zvládla enormné množstvo spracovania a výpočtu údajov. Tento typ sietí boli primárne navrhnuté pre obrazové dáta, napriek tomu dokážu dosiahnuť veľmi dobré výsledky aj s neobrazovými údajmi. Proces budovania siete spočíva v štyroch krokoch: 
+  \begin{enumerate}
+      \item konvolúcia - proces, pri ktorom sa z našich vstupných údajov vytvárajú mapy objektov.
+      \item max-pooling - umožňuje detegovať obrázok, keď je prezentovaný s úpravou.
+      \item sploštenie - vloženie údajov do poľa, aby ich sieť mohla prečítať.
+      \item plné pripojenie - skrytá vrstva, ktorá počíta stratovú funkciu pre náš model.
+  \end{enumerate}
+  Primárne využitie tohto typu sietí nájdeme, ako už bolo spomenuté vyššie, pri spracovaní obrazu. Taktiež sú používané pri potrebe komplexných výsledkov na výstupe.
+  \item rekurentné neurónové siete - typ umelej neurónovej siete, ktorá využíva sekvenčné údaje alebo údaje z časových radov. Tieto algoritmy hlbokého učenia sa bežne používajú pri bežných alebo dočasných problémoch, ako je preklad jazyka, spracovanie prirodzeného jazyka, rozpoznávanie reči a popisovanie obrázkov. Sú používané v populárnych aplikáciach ako je Siri a iné hlasové vyhľadávania alebo Google Translate. Podobne ako konvolučné neurónové siete (CNN), aj rekurentné neurónové siete využívajú na učenie tréningové údaje. Vyznačujú sa svojou „pamäťou“, pretože preberajú informácie z predchádzajúcich vstupov, aby ovplyvnili aktuálny vstup a výstup. Zatiaľ čo tradičné hlboké neurónové siete predpokladajú, že vstupy a výstupy sú na sebe nezávislé, výstup rekurentných neurónových sietí závisí od predchádzajúcich prvkov v sekvencii.
+\end{itemize}
+
+Príklady modelov učenia bez dozoru:
+\begin{itemize}
+  \item samo organizujúce sa mapy - pracujú s údajmi bez dozoru a zvyčajne pomáha pri redukcii rozmerov premenných. Výstupná dimenzia je vždy 2-rozmerná pre samo organizujúcu sa mapu. Každá synapsia spájajúca vstupné a výstupné uzly má priradenú váhu. Uzol s najväčším vplyvom v sieti sa nazýva BMU (najlepšia zhodná jednotka) a model aktualizuje svoje váhy, aby sa priblížili k BMU. Sú používané v prípade, že dostupné dáta neobsahujú výstupný parameter, prípadne pri kreatívnych projektoch v rámci umenia.
+  \item Boltzmannové stroje - nesledujú trend smerovania. Všetky uzly sú navzájom spojené v kruhovom hyperpriestore. Boltzmannov stroj môže tiež generovať všetky parametre modelu namiesto toho, aby pracoval s pevnými vstupnými parametrami. Takýto model sa označuje ako stochastický a líši sa od väčšiny deterministických modelov. Využíva sa pri monitoringu systémov.
+  \item Auto kódovače - Auto kódovače fungujú tak, že automaticky zakódujú dáta na základe vstupných hodnôt, potom vykonajú aktivačnú funkciu a nakoniec dáta dekódujú na výstup. Za pomoci určitej prekážky vstupnej premennej následne prebehne komprimácia dát do kategórii. Následne, ak existuje nejaká inherentná štruktúra, model auto kódovača ju identifikuje a využije na získanie výstupu. Často sa používajú v rámci systémov odporúčaní.
+\end{itemize}
+
+
 
 \subsubsection{Vrstvy hlbokého učenia}
 Vrstva je stavebným kameňom najvyššej úrovne v hlbokom učení. Vrstva je kontajner, ktorý zvyčajne prijíma vážený vstup, transformuje ho množinou väčšinou nelineárnych funkcií a potom tieto hodnoty odovzdá ako výstup ďalšej vrstve. Vrstva je zvyčajne jednotná, to znamená, že obsahuje iba jeden typ aktivačnej funkcie, združovanie, konvolúciu atď., takže ju možno ľahko porovnávať s inými časťami siete. Prvá a posledná vrstva v sieti sa nazývajú vstupná a výstupná vrstva a všetky vrstvy medzi nimi sa nazývajú skryté vrstvy.
 
-\subsubsubsection{Dense vrstva}
+\paragraph{Dense vrstva} je vrstva, ktorá je hlboko spojená s jej predchádzajúcou vrstvou, čo znamená, že neuróny vrstvy sú spojené s každým neurónom predchádzajúcej vrstvy. Táto vrstva je najčastejšie používanou vrstvou v sieťach umelých neurónových sietí. Funkcia tejto vrstvy je meniť rozmer vektoru pomocou každého neurónu.
+Neurón tejto vrstvy v modeli dostáva výstup z každého neurónu svojej predchádzajúcej vrstvy, kde prebehlo násobenie maticového vektora. Násobenie maticového vektora je postup, pri ktorom sa riadkový vektor výstupu z predchádzajúcich vrstiev rovná stĺpcovému vektoru vrstvy. Všeobecným pravidlom násobenia matice-vektor je, že riadkový vektor musí mať toľko stĺpcov ako stĺpcový vektor. Následne výpočet prebieha za pomoci vzorca na obrázku \ref{maticavektor}.
 
-\subsubsubsection{LSTM vrstva}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/dense.png}
+  \caption{Všeobecný vzorec násobenia matica-vektor, kde A je matica MxN a x je matica 1xN}
+  \label{maticavektor}
+  \captionsource{Zdroj: }{???}
+\end{figure}
 
-\subsubsubsection{GRU vrstva}
+Hodnoty matice sú natrénované parametre predchádzajúcich vrstiev, ktoré môžu byť aktualizované pomocou spätnej propagácie. Spätná propagácia je najbežnejšie používaný algoritmus na trénovanie dopredných neurónových sietí. Vo všeobecnosti spätná propagácia v neurónovej sieti počíta gradient stratovej funkcie vzhľadom na váhy siete pre jeden vstup alebo výstup. Výstup pochádzajúci z tejto vrstvy je N-rozmerný vektor.
+
+\paragraph{LSTM vrstva} má výhodu v procese spracovávania údajov, nakoľko môže v čase zabúdať alebo učiť sa nové vzory. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/lstm.png}
+  \caption{Princíp LSTM buniek a ich operácie}
+  \label{lstm}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+Základným konceptom LSTM je stav bunky a jeho rôzne brány. Stav bunky funguje ako základný parameter, ktorý prenáša informácie až do sekvenčného reťazca. Vytvára sa tým pamäť siete. Stav bunky nesie informácie počas spracovania sekvencie, takže aj informácie z predchádzajúcich krokov sa môžu dostať do neskorších krokov, čím sa znížia účinky krátkodobej pamäte. Keď bunkový stav pokračuje vo svojom procese, informácie sa pridávajú alebo odstraňujú do stavu bunky cez brány. Brány sú rôzne neurónové siete, ktoré rozhodujú o tom, ktoré informácie o stave bunky sú povolené. Brány sa môžu naučiť, aké informácie je dôležité počas tréningu ponechať alebo zabudnúť.
+
+
+Brány obsahuje sigmoidné aktivácie. Aktivácia sigmoidom je podobná aktivácii tanh. Rozdiel je, že kým pri tanh sa hodnoty vložia do rozmedzia hodnôt medzi -1 a 1, pri sigmoide je použitý interval hodnôt medzi 0 a 1. Užitočnosť je vo fakte, že každá zabudnutá hodnota nadobúda hodnotu 0 a teda následné násobenie hodnotu nemení. Taktiež akékoľvek číslo vynásobené 1 sa rovná rovnakej hodnote, preto hodnota zostáva rovnaká alebo je „zachovaná“. Sieť sa v procese učí, ktoré údaje nie sú dôležité a preto môžu byť údaje zabudnuté alebo zachované. Typy brán v sieti sú:
+\begin{itemize}
+    \item Brána zabudnutia: Táto brána rozhoduje o tom, aké informácie by sa mali vyhodiť alebo ponechať. Informácie z predchádzajúceho skrytého stavu a informácie z aktuálneho vstupu prechádzajú cez sigmoidnú funkciu. Hodnoty sú medzi 0 a 1. Čím bližšie k 0 znamená zabudnúť a čím bližšie k 1 znamená ponechať.
+    \item Vstupná brána: Na aktualizáciu stavu bunky máme vstupnú bránu. Najprv prenesieme predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. To rozhoduje o tom, ktoré hodnoty sa budú aktualizovať transformáciou hodnôt na hodnotu medzi 0 a 1. 0 znamená nedôležité a 1 znamená dôležité. Skrytý stav je tiež možné odovzdať spolu s aktuálnym vstup do funkcie tanh, čo zabezpečí interval hodnôt -1 a 1 čo pomôže s regulováciou siete. Potom sa výstup násobí sigmoidným výstupom. Sigmoidný výstup rozhodne, ktoré informácie je dôležité zachovať z tanhového výstupu.
+    \item Stav bunky: Teraz by sme mali mať dostatok informácií na výpočet stavu bunky. Stav bunky sa bodovo vynásobí vektorom zabudnutia. Vďaka tomu môžeme vypustiť hodnoty v stave bunky, ktoré sa násobia hodnotami blízkymi 0. Následne vezmeme výstup zo vstupnej brány a urobíme bodové sčítanie, ktoré aktualizuje stav bunky na nové, relevantné hodnoty. Vďaka tomu získavame nový bunkový stav.
+    \item Výstupná brána: Výstupná brána rozhoduje o tom, aký by mal byť ďalší skrytý stav. Skrytý stav obsahuje informácie o predchádzajúcich vstupoch a používa sa aj na predpovede. Najprv sa vloží predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. Potom sa odovzdá novo upravený stav bunky funkcii tanh. Tá vynásobí tanh výstup sigmoidným výstupom, aby sa rozhodlo, aké informácie má skrytý stav niesť. Výstupom je skrytý stav. Nový stav bunky a nový skrytý stav sa potom prenesú do ďalšieho časového kroku.
+\end{itemize}
+
+
+Proces, ktorým sa sieť učí je nasledovný:
+\begin{enumerate}
+    \item Zreťazí sa predchádzajúci skrytý stav a aktuálny vstup.
+    \item Táto kombínácia sa dostane do vrstvy zabudnutia. Táto vrstva odstraňuje nerelevantné údaje.
+    \item Kandidátska vrstva sa vytvorí pomocou kombinácie. Kandidát obsahuje možné hodnoty na pridanie do stavu bunky.
+    \item Kombinácia sa tiež dostáva do vstupnej vrstvy. Táto vrstva rozhoduje o tom, aké údaje z kandidáta sa majú pridať do nového stavu bunky.
+    \item Po výpočte vrstvy zabudnutia, kandidátskej vrstvy a vstupnej vrstvy sa stav bunky vypočíta pomocou týchto vektorov a predchádzajúceho stavu bunky.
+    \item Vypočíta sa výstup.
+    \item Bodovým vynásobením výstupu a nového stavu bunky získame nový skrytý stav.
+\end{enumerate}
+
+\paragraph{GRU vrstva} je novšia generácia rekurentných neurónových sietí a je dosť podobná LSTM, preto po tom ako sme opísali fungovanie LSTM vrstvy, opis GRU je omnoho jednoduchší. V GRU sa nepoužíva stav bunky, používa sa len skrytý stav na prenos informácií. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/gru.png}
+  \caption{GRU bunka a jej brány}
+  \label{gru}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+Ako môžeme vidieť na obrázku \ref{gru}, koncept obsahuje dve brány, resetovaciu bránu a aktualizačnú bránu.
+
+\begin{itemize}
+    \item Aktualizačná brána funguje podobne ako brána zabudnutia a vstupu vo vrstvách LSTM. Rozhoduje, aké informácie vyhodiť a aké nové informácie pridať.
+    \item Resetovacia brána je bránou, ktorá sa používa na rozhodnutie, koľko minulých informácií zabudnúť.
+\end{itemize}
+
+GRU má menej tenzorových operácií, preto tréningový proces je o niečé rýchlejší ako v prípade LSTM. Neexistuje avšak jednoznačný výsledok, ktorá vrstva je lepšia, preto sa pri vytváraní modelov využívajú oba prístupy a následne sa výsledky porovnávajú za pomoci evaluačných parametrov spomínaných v podsekcii \ref{evaluacia}. 
 
 \subsubsection{Hyperparametre hlbokého učenia}
 \paragraph{Number of Hidden Layers}
 \paragraph{Dropout}
 \paragraph{Activation function}
-
+V neurónových sieťach sa aktivačná funkcia používa na transformáciu vstupných hodnôt neurónov. Do neurónových sietí vnáša nelinearitu , aby sa siete naučili vzťah medzi vstupnými a výstupnými hodnotami.
 \paragraph{Learning Rate}
 \paragraph{Number of epochs}
 \paragraph{Batch size}
 \paragraph{Number of epochs}
 
 \subsection{Výstupy a evaluácia výsledkov}
+\label{evaluacia}
 
 \paragraph{MAE} Stredná absolútna chyba je metrika hodnotenia modelu používaná v regresných modeloch. Stredná absolútna chyba modelu je priemer absolútnych hodnôt vzhľadom na testovaciu množinu jednotlivých chýb predikcie na všetkých inštanciách testovacej množiny. Každá chyba predpovede je rozdiel medzi skutočnou hodnotou a predpovedanou hodnotou pre inštanciu. \newline
 $MAE = {\frac{1}{n}\sum_{i=1}^{n}(Y-\widehat{Y})}$
@@ -350,3 +442,5 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
 \subsubsection{Odskúšané modely}
 
 \subsection{Výsledky}
+\subsubsection{Jednorozmerný model LSTM}
+\subsubsection{Viacrozmerný model LSTM}
