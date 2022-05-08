@@ -402,14 +402,27 @@ Ako môžeme vidieť na obrázku \ref{gru}, koncept obsahuje dve brány, resetov
 GRU má menej tenzorových operácií, preto tréningový proces je o niečé rýchlejší ako v prípade LSTM. Neexistuje avšak jednoznačný výsledok, ktorá vrstva je lepšia, preto sa pri vytváraní modelov využívajú oba prístupy a následne sa výsledky porovnávajú za pomoci evaluačných parametrov spomínaných v podsekcii \ref{evaluacia}. 
 
 \subsubsection{Hyperparametre hlbokého učenia}
-\paragraph{Number of Hidden Layers}
-\paragraph{Dropout}
+\paragraph{Skryté vrstvy} sú vrstvy medzi vstupnou a výstupnou vrstvou. Mnoho skrytých jednotiek vo vrstve môže vďaka technike regularizácie zvýšiť presnosť. Menší počet jednotiek môže spôsobiť nedostatočné natrénovanie.
+
+\paragraph{Dropout} je technika regularizácie za účelom zvýšenia presnosti validácie, čím sa zvyšuje sila generalizácie. Vo všeobecnosti sa používa hodnotu v intervale 20 až 50 percent neurónov, pričom 20 percent poskytuje ideálny počiatočný bod. Príliš nízka hodnota má minimálny účinok a príliš vysoká hodnota zase nedostatočné trénovanie. Pravdepodobnosť dosiahnutia lepšieho výkonu nastáva vtedy, keď sa dropout použije vo väčšej sieti.
+
 \paragraph{Activation function}
 V neurónových sieťach sa aktivačná funkcia používa na transformáciu vstupných hodnôt neurónov. Do neurónových sietí vnáša nelinearitu , aby sa siete naučili vzťah medzi vstupnými a výstupnými hodnotami.
-\paragraph{Learning Rate}
-\paragraph{Number of epochs}
-\paragraph{Batch size}
-\paragraph{Number of epochs}
+
+\paragraph{Rýchlosť učenia} definuje, ako rýchlo sieť aktualizuje svoje parametre. Nízka rýchlosť učenia spomaľuje proces učenia avšak výhodou je plynulá konvergencia. Väčšia rýchlosť učenia urýchľuje učenie, ale nemusí správne konvergovať, ako môžeme vidieť na obrázku \ref{learningrate}. Zvyčajne sa uprednostňuje postupne klesajúca miera rýchlosti učenia.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/learningrate.jpg}
+  \caption{Gradientný zostup}
+  \label{learningrate}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\paragraph{Počet epoch} je počet zobrazení celých tréningových dát sieti počas tréningu. Počet epoch sa zvyšuje, kým validačná presnosť nezačne klesať v porovnaní s presnosťou tréningu, ktorá sa postupne zvyšuje, čo môže spôsobiť pretrénovanie siete.
+
+\paragraph{Veľkosť dávky} je počet čiastkových vzoriek odovzdaných sieti, po ktorých sa vykoná aktualizácia parametrov. Predvolená veľkosť dávky sa väčšinou zadáva v binárnych násobkoch a najčastejšia východzia hodnota predstavuje hodnotu 32. Následne sa veľkosť zvyšuje alebo znižuje podľa procesu tréningu, v prípade pomalého trénovania sa dávka zvyšuje, teda na jednu dávku pripadá viac dát.
+
 
 \subsection{Výstupy a evaluácia výsledkov}
 \label{evaluacia}
