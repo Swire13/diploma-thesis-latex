@@ -447,13 +447,126 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
 
 \subsection{Dáta}
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/workflow.png}
+  \caption{Proces praktickej časti práce}
+  \label{workflow}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/datase.png}
+  \caption{Náhľad hodnôt v použitom súbore dát}
+  \label{dataset}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/surface_temp.png}
+  \caption{Mapa teplôt na povrchu Marsu s vyznačeným miestom meraní Curiosity (zelené označenie v pravej strednej oblasti), konkrétne súradnice: (-4.6 S,137.4 E)}
+  \label{temp}
+  \captionsource{Zdroj: }{http://www-mars.lmd.jussieu.fr/}
+\end{figure}
+\newpage
+
+
+
 \subsubsection{Dôležité parametre}
+\begin{itemize}
+    \item SOL\char`_CHRONOLOGICAL
+    \item EARTH\char`_DATE
+    \item LS
+    \item MARTIAN\char`_MONTH
+    \item MARS\char`_YEAR
+    \item T\char`_min
+    \item T\char`_max
+    \item P\char`_min
+    \item P\char`_max
+    \item VMR\char`_min
+    \item VMR\char`_max
+    \item RH\char`_min
+    \item RH\char`_max
+    \item YEAR\char`_SOL
+\end{itemize}
+
+
+
 \subsubsection{Príprava dát}
+Tu budem opisovat informacie o procese tvorby dat.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=16cm]{img/full_df.png}
+  \caption{Priebeh parametrov za obdobie dvoch rokov na Marse}
+  \label{fulldf}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\paragraph{Čistenie dát} budem opisovat tu.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/clean_data.png}
+  \caption{Proces čistenia dát}
+  \label{cleandf}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=16cm]{img/df_desc.png}
+  \caption{Opis dát v súbore}
+  \label{dfdesc}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=16cm]{img/monthly_temp.png}
+  \caption{Priebeh teploty v mesiacoch v 2 rokoch na Marse}
+  \label{dfdesc}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+
+\newline
+
+\paragraph{Hľadanie závislostí} budem opisovat v tejto casti
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/heatmap.png}
+  \caption{Mapa závislostí medzi parametrami}
+  \label{heatmap}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+
+\newpage
 
 \subsubsection{Implementácia}
 \subsubsection{Typy neurónových sieti}
 \subsubsection{Odskúšané modely}
 
 \subsection{Výsledky}
+
+
 \subsubsection{Jednorozmerný model LSTM}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/GRU, LSTM and Dense.png}
+  \caption{Porovnanie výsledkov jednorozmerných modelov}
+  \label{univariate}
+  \captionsource{Zdroj: }{???}
+\end{figure}
+
+
 \subsubsection{Viacrozmerný model LSTM}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/LSTM and stacked LSTM.png}
+  \caption{Porovnanie výsledkov jednorozmerného a viacrozmerného LSTM modelu}
+  \label{stackedlstm}
+  \captionsource{Zdroj: }{???}
+\end{figure}
