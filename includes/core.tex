@@ -20,7 +20,7 @@
 \section{Motivácia}
 
 \section{Teoretická časť}
-
+V nasledujúcich podsekciách si postupne prejdeme základný prehľad teoretických informácií a poznatkov, ktoré sme počas procesu písania tejto práce získali. Uvedieme si základné informácie o tom, čo je počasie, aké počasie existuje na Zemi a aké počasie sa vyskytuje na planéte, ktorá sa v rámci slnečnej sústavy najviac podobá tej našej - Marse. Prejdeme si, akým spôsobom človek pristupoval k predpovedi počasia a ako sa v dnešnej dobe predpoveď vykonáva. Následne si zadefinujeme pojmy ako umelá inteligencia, strojové učenie a hlboké učenie, opíšeme, čo znamená slovo hyperparameter a ako ho vieme nastaviť. Na záver vysvetlíme pojmy výstupov a evaluácie, ktoré využívame pri praktickej časti a uvedieme existujúce riešenia, ktoré sú dostupné na internete a pojednávajú problematiku predpovede počasia na Marse.
 \subsection{Počasie všeobecne}
 Počasie, v najjednoduchšom ponímaní, predstavuje stav atmosféry na konkrétnej lokácii počas veľmi krátkeho časového intervalu. Zahŕňame do neho také atmosférické javy ako napríklad teplota, vlhkosť, zrážky, ktoré ďalej rozdelujeme podľa druhu a podľa množstva, tlak vzduchi, zloženie ovzdušia, vietor alebo oblačnosť. Často je tento pojem zamieňaný za pojem klíma, ktorý predstavuje informácie o podmienkach z dlhodobého časového horizontu, zväčša 30 rokov.
 
@@ -37,7 +37,7 @@ Práve premenlivosť - prakticky hlavná vlastnosť počasia sa podpísala o to,
   \includegraphics[width=8cm]{img/numerical_prediction_model.png}
   \caption{Príklad numerického modelu zameraného na meranie vertikálneho pohybu atmosféry.}
   \label{numModel}
-  \captionsource{Zdroj: }{???}
+  \captionsource{Zdroj: }{https://www.ecmwf.int/en/about/media-centre/news/2015/course-probes-numerical-methods-weather-forecasting.}
 \end{figure}
 
 \subsection{Počasie na Zemi}
@@ -105,6 +105,7 @@ Mars je štvrtou a zároveň poslednou planétou vnútornej sústavy planét sln
 
 \subsubsection{Atmosféra Marsu}
 \label{atmosferaMarsu}
+
 Za posledné desaťročie bolo na povrch Marsu vypustených mnoho sond za účelom zistenia konzistencie povrchu. Ak by sme chceli prirovnať podmienky na Marse k tým na Zemi, najviac by sa povrch podobal púštným oblastiam. Povrch planéty je posiaty krátermi, ktoré boli vplyvom silného vetra na povrchu postupne uhladené a teda dnes vidíme len malé pozostatky. Práve vietor je jedným z primárnych atmosférických javov na povrchu planéty, nakoľko jeho pôsobením môžu nahromadené prvky podobné piesku vzniesť do ozvdušia a spôsobiť púštne búrky, ktoré sa v rámci roka dokonca na Marse periodicky opakujú. Následne môžeme občas dokonca aj z našej planéty za pomoci silnejšieho ďalekohľadu vidieť výraznejšie začervenanie planéty ako obvykle. Hornina, z ktorej je tento prach na povrchu Marsu zložený pozostáva najmä z danej červenkastej horniny, piesku a pôdy. V niektorých oblastiach Marsu sa vyskytujú miesta so zeleným zafarbením, avšak tento efekt nebol do dnešného dňa vysvetlený. Čo sa týka vody, známe sú ložiská vody pevného skupenstva na póloch planéty. Kvapalnú vodu sa nám do dnešného dňa nepodarilo objaviť napriek dôkazom erodovanej pôdy z plyvu práve vody kvapalného skupenstva. Taktiež sa predpokladá, že voda v kvapalnom skupenstve existuje aj pod povrchom Marsu, avšak vplyvom nízkeho atmosférického tlaku by sa voda vystupujúca na povrch ihneď pretvorila do plynného stavu. 
 Atmosféra Marsu sa skladá predovšetkým z oxidu uhličitého. Avšak na rozdiel od Venuše je atmosféra Marsu veľmi tenká, vystavuje planétu bombardovaniu kozmickým žiarením a vytvára veľmi malý skleníkový efekt. Atmosférický tlak na povrchu Marsu je iba 1 až 2 percentá tlaku na Zemi. 
 Tak ako na Zemi aj Mars má atmosféru a teda aj počasie. To, ako definujeme tieto dva pojmy na tejto planéte je však mimoriadne odlišné od toho, ako ich vnímame na našej planéte. Ako sme spomínali v sekcii \ref{atmosferaZeme}, Zemskú atmosféru tvorí asi 78 percent dusíka, 21 percent kyslíka, 0,9 percenta argónu a 0,1 percenta iných plynov. Taktiež obsahuje asi 1\% (backslash percent) vodnej pary. Atmosféra Marsu však pozostáva z 95\% (backslash percent) oxidu uhličitého, 3\% (backslash percent) dusíka, 1,6\% (backslash percent) argónu a obsahuje stopy kyslíka, oxidu uhoľnatého, prípadne vody. Vzduch na Marse je veľmi riedky a tlak v porovnaní je taktiež iba 1 až 2 percentá tlaku na Zemi. Pre predstavu, takýto tlak sa vyskytuje vo výške 45 kilometrov našej atmosféry. Tento tlak sa ešte mení s nadmorskou výškou, avšak stále pojednávame o veľmi malých, až zanedbateľných zmenách. Zaujímavosťou v rámci kolísania tlaku je však jeho periodické kolísanie v rámci sezóny. Je to z dôvodu vysokého množstva plynu CO2 v atmosfére, ktorý sa mení s ročnými obdobiami. Vyšší tlak sa vyskytuje počas južných letných mesiacov a najnižší počas severných letných mesiacov. Zmena je spôsobená rozdielom teplôt v danom období. Kým severné polárne zimy sú teplé a krátke, južné polárne zimy sú dlhšie a teplota klesá k nižším hodnotám. Práve južná polárna zima spôsobuje zamŕzanie plynu CO2 priamo v oblastiach južného pólu, čo spôsobuje pokles tohto plynu v atmosfére. Vtedy tlak na Marse klesá o približne 30 percent.
@@ -148,36 +149,38 @@ Dôležitým parametrom, ktorý určuje dĺžku mesiacov ako na Marse tak aj na 
 \end{figure}
 
 \begin{table}[!htbp]
-\caption{Rozdelenie dĺžok mesiacov na Marse}
+\caption{Rozdelenie dĺžok mesiacov na Marse.}
 \centering
-\begin{tabular}{llll}
-Mesiac  & Ls (stupne)   & Sol            & Trvanie (dni)    \\
-1       & 0 - 30        & 0.0 - 61.2     & 61.2             \\
-2       & 30 - 60       & 61.2 - 126.6   & 65.4             \\
-3       & 60 - 90       & 126.6 - 193.3  & 66.7             \\
-4       & 90 - 120      & 193.3 - 257.8  & 64.5             \\
-5       & 120 - 150     & 257.8 - 317.5  & 59.7             \\
-6       & 150 - 180     & 317.5 - 371.9  & 54.4             \\
-7       & 180 - 210     & 371.9 - 421.6  & 49.7             \\
-8       & 210 - 240     & 421.6 - 468.5  & 46.9             \\
-9       & 240 - 270     & 468.5 - 514.6  & 46.1             \\
-10      & 270 - 300     & 514.6 - 562.0  & 47.4             \\
-11      & 300 - 330     & 562.0 - 612.9  & 50.9             \\
-12      & 330 - 360     & 612.9 - 668.6  & 55.7                                                     
+\begin{tabular}{|l|l|l|l|}
+\hline 
+Mesiac  & Ls (stupne)   & Sol            & Trvanie (dni)    \\ \hline
+1       & 0 - 30        & 0.0 - 61.2     & 61.2             \\ \hline
+2       & 30 - 60       & 61.2 - 126.6   & 65.4             \\ \hline
+3       & 60 - 90       & 126.6 - 193.3  & 66.7             \\ \hline
+4       & 90 - 120      & 193.3 - 257.8  & 64.5             \\ \hline
+5       & 120 - 150     & 257.8 - 317.5  & 59.7             \\ \hline
+6       & 150 - 180     & 317.5 - 371.9  & 54.4             \\ \hline
+7       & 180 - 210     & 371.9 - 421.6  & 49.7             \\ \hline
+8       & 210 - 240     & 421.6 - 468.5  & 46.9             \\ \hline
+9       & 240 - 270     & 468.5 - 514.6  & 46.1             \\ \hline
+10      & 270 - 300     & 514.6 - 562.0  & 47.4             \\ \hline
+11      & 300 - 330     & 562.0 - 612.9  & 50.9             \\ \hline
+12      & 330 - 360     & 612.9 - 668.6  & 55.7             \\ \hline                                        
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
-\caption{Udalosti na základe uhla naklonenia voči Slnku }
+\caption{Udalosti na základe uhla naklonenia voči Slnku.}
 \centering
-\begin{tabular}{lll}
-Ls (stupne) & Udalosť                                       & Sezóna prachových búrok   \\
-0           & Jarná rovnodennosť severnej pologule          & Koniec                    \\
-71          & Aphelion (Najväčšia vzdialenosť Mars-Slnko)   &                           \\
-90          & Letný slnovrat na severnej pologuli           &                           \\
-180         & Jesenná rovnodennosť na severnej pologuli     & Začiatok                  \\
-251         & Perihélium (najmenšia vzdialenosť Mars-Slnko) & Trvanie                   \\
-270         & Zimný slnovrat na severnej pologuli           & Trvanie 
+\begin{tabular}{|l|l|l|}
+\hline 
+Ls (stupne) & Udalosť                                       & Sezóna búrok     \\ \hline
+0           & Jarná rovnodennosť severnej pologule          & Koniec    \\ \hline
+71          & Aphelion (Najväčšia vzdialenosť Mars-Slnko)   &           \\ \hline
+90          & Letný slnovrat na severnej pologuli           &           \\ \hline
+180         & Jesenná rovnodennosť na severnej pologuli     & Začiatok  \\ \hline
+251         & Perihélium (najmenšia vzdialenosť Mars-Slnko) & Trvanie   \\ \hline
+270         & Zimný slnovrat na severnej pologuli           & Trvanie   \\ \hline                                      
 \end{tabular}
 \end{table}
 
@@ -186,7 +189,6 @@ Ls (stupne) & Udalosť                                       & Sezóna prachový
 Zem je obalená atmosférou prevažne dusíka, kyslíka a vodnej pary. Vzduch pohybom priestorom nesie so sebou svoje vlastnosti a mení teplotu, vlhkosť, tlak a ostatné iné parametre a teda mení krátkodobý stav atmosféry - počasie. Počasie je teda vo svojej podstate vedľajším produktom našej atmosféry, ktorý prenáša teplo z jedného miesta na druhé.
 Ako sme písali v podsekcii \ref{atmosferaZeme}, výkyvy počasia sa menia s lokáciou, kde na Zemi sa práve nachádzame. Taktiež, ako opisujeme v podsekcii \ref{atmosferaMarsu}, atmosféra na planéte Mars je výrazne pokojnejšia a teda zmena počasia je takmer úplne prepojená s ročným obdobím na planéte.
 V tejto podsekcii chceme priblížiť vývoj predpovede počasia v histórii meraní.
-
 
 \paragraph{Prvé zaznamenané merania} sú zaznamenané už v gréckymi filozofmi, ktorí položili základy vednej disciplíny, ktorú dnes nazývame meteorológia. Problémom doby bolo hlavne mylné chápanie prírodných javov, čo spôsobovalo následne zlý výklad vzťahov stavu počasia s rôznymi sprievodnými udalosťami. Pokrok nastal až vynálezom ortuťového barometra Evangelistom Torricellim, talianskym fyzikom a matematikom, ktorý v 17. storočí spôsobil revolúciu v tomto vednom odbore. Takmer palalne k tejto udalosti sa na svetlo sveta dostal aj prvý ortuťový teplomer, ktorý bol vytvorený na základoch objavu Galela Galileiho a jeho vynálezu plynného teplomera, ktorý napriek veľkej nepresnosti a teda nepoužiteľnosti v praxi slúžil ako predloha pre nový koncept s kvapalinou v skle.
 17. a 18. storočie patrí medzi najdôležitejšiu etapu v posune meteorológii. Vďaka formulácii fyzikálnych zákonov tlaku plynu, teploty a hustoty od Roberta Boyla a Jacquesa Alexandra Cézara Charlesa, vývoju počtov od Isaaca Newtona a Wilhelma Leibniza, Daltonového zákona o parciálnych tlakoch zmesových plynov a mnohých ďalších zákonov bolo možné lepšie opísať a pochopiť dovtedy neznáme aspekty atmosféry. Následne 19. storočie prinieslo prvé výsledky a teda prvé užitočné predpovede počasia \cite{meteo}.
@@ -246,11 +248,11 @@ Umelá inteligencia môže byť rozdelená do dvoch kategórií: slabá a silná
 Ďalšie rozdelenie umelej inteligencie zahŕňa oblasti vrátane počítačového programovania, strojového učenia, analytických modelov, spracovania prirodzeného jazyka, hlbokého učenia a neurónových sietí \cite{ai2}.
 
 Na vývoj rôznych druhov umelej inteligencie sa píšu pokročilé algoritmy, ktoré sa kombinujú s cieľom rýchlejšej analýzy veľkých objemov údajov. Existuje niekoľko typov algoritmov umelej inteligencie, vrátane:
-\paragraph{Regresné algoritmy} sa používajú, keď je cieľovým výstupom spojitá veličina. Počiatočný súbor dát musí mať označenia. Regresné algoritmy spadajú do kategórie kontrolovaného strojového učenia.
+\paragraph{Regresné algoritmy} sa používajú, keď je cieľovým výstupom spojitá veličina. Počiatočný súbor dát musí mať označenia. Regresné algoritmy spadajú do kategórie učenia s učiteľom.
 
 \paragraph{Klasifikačné algoritmy} prichádzajú do úvahy, ak je potrebné predpovedať výsledok na základe stanoveného počtu fixných, vopred definovaných výsledkov. Príklady zahŕňajú Naive Bayes, the Decision Tree, alebo Logistic Regression.
 
-\paragraph{Algoritmy klastrovania} priraďujú vstupné údaje do dvoch alebo viacerých skupín na základe podobnosti rôznych vlastností. Je to forma strojového učenia bez dozoru, v ktorej sa algoritmus učí vzory z údajov bez označovania súboru dát.
+\paragraph{Algoritmy klastrovania} priraďujú vstupné údaje do dvoch alebo viacerých skupín na základe podobnosti rôznych vlastností. Je to forma strojového učenia bez učiteľa, v ktorej sa algoritmus učí vzory z údajov bez označovania súboru dát.
 
 Rôzne komponenty prispievajú k rôznym typom umelej inteligencie. Medzi prvky umelej inteligencie patria:
 \paragraph{Strojové učenie} využíva štatistiku, fyziku a neurónové siete na získavanie poznatkov z údajov bez potreby toho, aby bol systém špecificky naprogramovaný na hľadanie v konkrétnej oblasti.
@@ -277,11 +279,11 @@ Systém učenia algoritmu strojového učenia môžeme rozdeliť na tri hlavné 
 \end{itemize}
 
 Metódy strojového učenia môžeme rozdeliť na:
-\paragraph{Učenie pod dohľadom} je definované používaním označených súborov dát na trénovanie algoritmov, ktoré presne klasifikujú údaje alebo predpovedajú výsledky. Keď sa vstupné údaje vkladajú do modelu, model prispôsobuje svoje hmotnosti, kým nie je model správne prispôsobený. Dochádza k tomu ako súčasť procesu krížovej validácie, ktorý zabezpečí vhodné prispôsobenie modelu. Niektoré metódy používané v kontrolovanom učení zahŕňajú neurónové siete, lineárnu regresiu alebo podporný vektorový stroj (SVM).
+\paragraph{Učenie s učiteľom} je definované používaním označených súborov dát na trénovanie algoritmov, ktoré presne klasifikujú údaje alebo predpovedajú výsledky. Keď sa vstupné údaje vkladajú do modelu, model prispôsobuje svoje hmotnosti, kým nie je model správne prispôsobený. Dochádza k tomu ako súčasť procesu krížovej validácie, ktorý zabezpečí vhodné prispôsobenie modelu. Niektoré metódy používané v kontrolovanom učení zahŕňajú neurónové siete, lineárnu regresiu alebo podporný vektorový stroj (SVM).
 
-\paragraph{Učenie bez dozoru} využíva algoritmy strojového učenia na analýzu a zoskupovanie neoznačených množín údajov. Tieto algoritmy objavujú skryté vzory alebo zoskupenia údajov bez potreby ľudského zásahu. Jeho schopnosť objavovať podobnosti a rozdiely v informáciách z neho robí ideálne riešenie pre prieskumnú analýzu údajov, stratégie predaja, segmentáciu zákazníkov, rozpoznávanie obrazov a vzorov. Algoritmy používané v učení bez dozoru zahŕňajú neurónové siete alebo pravdepodobnostné metódy klastrovania.
+\paragraph{Učenie bez učiteľa} využíva algoritmy strojového učenia na analýzu a zoskupovanie neoznačených množín údajov. Tieto algoritmy objavujú skryté vzory alebo zoskupenia údajov bez potreby ľudského zásahu. Jeho schopnosť objavovať podobnosti a rozdiely v informáciách z neho robí ideálne riešenie pre prieskumnú analýzu údajov, stratégie predaja, segmentáciu zákazníkov, rozpoznávanie obrazov a vzorov. Algoritmy používané v učení bez učiteľa zahŕňajú neurónové siete alebo pravdepodobnostné metódy klastrovania.
 
-\paragraph{Učenie sa čiastočne pod dohľadom} ponúka balans medzi učením pod dohľadom a učením bez dozoru. Počas tréningu používa menšiu označenú množinu dát na usmernenie klasifikácie a extrakcie funkcií z väčšej neoznačenej množiny údajov. Učenie s čiastočným dohľadom môže vyriešiť problém nedostatku označených údajov na trénovanie algoritmu učenia pod dohľadom.
+\paragraph{Čiastočné učenie sa s učiteľom} ponúka balans medzi učením sa s učiteľom a učením sa bez učiteľa. Počas tréningu používa menšiu označenú množinu dát na usmernenie klasifikácie a extrakcie funkcií z väčšej neoznačenej množiny údajov. Učenie s čiastočným dohľadom môže vyriešiť problém nedostatku označených údajov na trénovanie algoritmu učenia s učiteľom.
 
 Najčastejšie je možné nájsť aplikácie strojového učenia v rozpoznávaní reči, počítačovom videní, automatické obchodovanie alebo predikcie časových radov \cite{ai2}.
 
@@ -289,12 +291,11 @@ Najčastejšie je možné nájsť aplikácie strojového učenia v rozpoznávan�
 Hlboké učenie je typ strojového učenia a umelej inteligencie, ktorý napodobňuje spôsob, akým ľudia získavajú určité typy vedomostí. Je dôležitým prvkom vedy o údajoch, ktorý zahŕňa štatistiku a prediktívne modelovanie. Je mimoriadne užitočný pre vedcov, ktorí majú za úlohu zbierať, analyzovať a interpretovať veľké množstvo údajov, nakoľko hlboké učenie robí tento proces rýchlejším a jednoduchším.
 Hlboké učenie je možno považovať za spôsob automatizácie prediktívnej analýzy. Zatiaľ čo tradičné algoritmy strojového učenia sú lineárne, algoritmy hlbokého učenia sú usporiadané v hierarchii zvyšujúcej sa zložitosti a abstrakcie.
 Aplikácie, ktoré využívajú hlboké učenie, prechádzajú takmer rovnakým procesom, ako človek, ktorý sa učí identifikovať objekt. Každý algoritmus v hierarchii aplikuje nelineárnu transformáciu na svoj vstup a používa to, čo sa naučí, na vytvorenie štatistického modelu ako výstup. Iterácie pokračujú, kým výstup nedosiahne prijateľnú úroveň presnosti. Práve veľký počet vrstiev spracovania údajov je inšpiráciou pre názov týchto typov siete.
-V tradičnom strojovom učení je proces učenia pod dohľadom. Človek, ktorý pripravuje proces musí dbať na správny výber typov vecí, na ktoré sa má počítač zamerať. Pri tomto procese, ktorý sa nazýva extrakcia funkcii úspešnosť závisí od definície sady funkcii, ktoré boli použité. Pri hlbokom učení používame zostavovanie sád funkcii bez dozoru, teda programátor nemá nad procesom tvorby žiadny dosah. Takýto proces učenia sa ukázal ako rýchlejší a aj presnejší.
+V tradičnom strojovom učení je proces učenia sa s učiteľom. Človek, ktorý pripravuje proces musí dbať na správny výber typov vecí, na ktoré sa má počítač zamerať. Pri tomto procese, ktorý sa nazýva extrakcia funkcii úspešnosť závisí od definície sady funkcii, ktoré boli použité. Pri hlbokom učení používame zostavovanie sád funkcii bez učiteľa, teda programátor nemá nad procesom tvorby žiadny dosah. Takýto proces učenia sa ukázal ako rýchlejší a aj presnejší.
 Na úvod procesu učenia sa môže použiť trénovacia množina údajov, ktoré vytvoria sadu funkcii a ktoré prispejú k zostaveniu prediktívneho modelu. S každou iteráciou, ktorou model prejde sa stáva nielen zložitejším ale aj presnejším. Na dosiahnutie prijateľne presného modelu je nutné poskytnúť modelu prístup k veľkému množstvu trénovacích údajov.
 Na vytvorenie kvalitných modelov hlbokého učenia možno použiť rôzne metódy. Techniky zahŕňajú pokles rýchlosti učenia, prenos učenia alebo vypadnutie \cite{deep_learning}.
-\paragraph{Pokles miery učenia} Rýchlosť učenia (learning rate) je hyperparameter – faktor, ktorý nastavuje podmienky pre jeho prevádzku pred procesom učenia. Zároveň riadi, akú veľkú zmenu model zažíva v reakcii na odhadovanú chybu pri každej zmene váh modelu. Príliš vysoké miery učenia môžu viesť k nestabilným tréningovým procesom alebo učeniu sa suboptimálnej sady váh. Príliš nízke miery učenia môžu spôsobiť zdĺhavý tréningový proces. Metóda poklesu rýchlosti učenia je proces prispôsobenia rýchlosti učenia na zvýšenie výkonu a skrátenie času tréningu.
-\paragraph{Prenos učenia} Tento proces zahŕňa zdokonalenie predtým trénovaného modelu; vyžaduje rozhranie k vnútorným častiam už existujúcej siete. Po vykonaní úprav v sieti je možné vykonávať nové úlohy so špecifickejšími schopnosťami kategorizácie. Táto metóda má tú výhodu, že vyžaduje oveľa menej údajov ako iné, čím sa skracuje čas výpočtu na minúty alebo hodiny.
-\paragraph{Dropout} Táto metóda rieši problém preťaženia v sieťach s veľkým množstvom parametrov náhodným vypustením jednotiek a ich spojení z neurónovej siete počas tréningu. Bolo dokázané, že táto metóda zlepšuje výkon neurónových sietí pri úlohách učenia s trénovacou množinou v mnohých oblastiach. 
+\paragraph{Prenos učenia} Tento proces zahŕňa zdokonalenie predtým trénovaného modelu; vyžaduje rozhranie k vnútorným častiam už existujúcej siete. Po vykonaní úprav v sieti je možné vykonávať nové úlohy so špecifickejšími schopnosťami kategorizácie. Pri procese vychádzame z výhody, že nemusíme vychádzať z náhodných váh ale môžeme si pomôcť už vopred natrénovanou sieťou pre podobný problém. Táto metóda má tú výhodu, že vyžaduje oveľa menej údajov ako iné, čím sa skracuje čas výpočtu na minúty alebo hodiny.
+
 
 Čo sa týka limitujúcich faktorov hlbokého učenia, veľké obmedzenie prichádza z dôvodu, že sa takéto siete učia pozorovaním. Znamená to, že sa učia to, čo vyplýva z údajov, ktoré do siete prichádzajú a na ktorých je sieť trénovaná. V prípade malého množstva alebo vysokej špecifičnosti údajov môžu modely dospieť do štádia trénovania, že ich nebude možné zovšeobecniť.
 
@@ -308,9 +309,9 @@ V rámci modelov hlbokého učenia primárne rozdelujeme dve kategórie:
 
 
 
-Najpodstatnejší rozdiel v týchto dvoch prístupov je v tom, ako sú modely trénované. Zatiaľ čo modely pod dohľadom sú trénované prostredníctvom príkladov konkrétneho súboru dát, modely bez dozoru dostávajú iba vstupné údaje a nemajú stanovený výsledok, z ktorého by sa mohli poučiť. Takže výsledok, ktorý sa snažíme predpovedať, nie je v modeli bez dozoru. V princípe ide o to, že v modeloch bez dozoru nepoznáme výsledok, ktorý sa snažíme predpovedať, zatiaľ čo modely pod dohľadom áno. Pri učení pod dohľadom sa zároveň využíva prístup úloh ako je regresia alebo klasifikácia za účelom vytvorenia vzorca, modely bez dozoru majú učenie založené na zoskupovaní a asociačných pravidlách \cite{deep_learning1}.
+Najpodstatnejší rozdiel v týchto dvoch prístupov je v tom, ako sú modely trénované. Zatiaľ čo modely učenia s učiteľom sú trénované prostredníctvom príkladov konkrétneho súboru dát, modely bez učiteľa dostávajú iba vstupné údaje a nemajú stanovený výsledok, z ktorého by sa mohli poučiť. Takže výsledok, ktorý sa snažíme predpovedať, nie je v modeli bez učiteľa. V princípe ide o to, že v modeloch bez učiteľa nepoznáme výsledok, ktorý sa snažíme predpovedať, zatiaľ čo modely učenia s učiteľom áno. Pri učení s učiteľom sa zároveň využíva prístup úloh ako je regresia alebo klasifikácia za účelom vytvorenia vzorca, modely bez učiteľa majú učenie založené na zoskupovaní a asociačných pravidlách \cite{deep_learning1}.
 
-Príklady modelov učenia pod dohľadom:
+Príklady modelov učenia s učiteľom:
 \begin{itemize}
   \item klasické neurónové siete: Klasické neurónové siete možno tiež označiť ako viacvrstvové perceptróny. Jeho jedinečná povaha mu umožňuje prispôsobiť sa základným binárnym vzorcom prostredníctvom série vstupov, ktoré simulujú vzorce učenia ľudského mozgu. Viacvrstvový perceptrón je klasický model neurónovej siete pozostávajúci z viac ako 2 vrstiev. Sú používané pri súboroch dát formátovaných do stĺpcov a riadkov alebo klasifikačných a regresných problémov so skutočnými údajmi na vstupe.
   \item konvolučné neurónové siete: Schopnejšia a pokročilejšia variácia klasických umelých neurónových sietí. Je postavená tak, aby zvládla enormné množstvo spracovania a výpočtu údajov. Tento typ sietí boli primárne navrhnuté pre obrazové dáta, napriek tomu dokážu dosiahnuť veľmi dobré výsledky aj s neobrazovými údajmi. Proces budovania siete spočíva v štyroch krokoch: 
@@ -321,22 +322,20 @@ Príklady modelov učenia pod dohľadom:
       \item plné pripojenie - skrytá vrstva, ktorá počíta stratovú funkciu pre náš model.
   \end{enumerate}
   Primárne využitie tohto typu sietí nájdeme, ako už bolo spomenuté vyššie, pri spracovaní obrazu. Taktiež sú používané pri potrebe komplexných výsledkov na výstupe.
-  \item rekurentné neurónové siete - typ umelej neurónovej siete, ktorá využíva sekvenčné údaje alebo údaje z časových radov. Tieto algoritmy hlbokého učenia sa bežne používajú pri bežných alebo dočasných problémoch, ako je preklad jazyka, spracovanie prirodzeného jazyka, rozpoznávanie reči a popisovanie obrázkov. Sú používané v populárnych aplikáciach ako je Siri a iné hlasové vyhľadávania alebo Google Translate. Podobne ako konvolučné neurónové siete (CNN), aj rekurentné neurónové siete využívajú na učenie tréningové údaje. Vyznačujú sa svojou „pamäťou“, pretože preberajú informácie z predchádzajúcich vstupov, aby ovplyvnili aktuálny vstup a výstup. Zatiaľ čo tradičné hlboké neurónové siete predpokladajú, že vstupy a výstupy sú na sebe nezávislé, výstup rekurentných neurónových sietí závisí od predchádzajúcich prvkov v sekvencii.
+  \item rekurentné neurónové siete - typ umelej neurónovej siete, ktorá využíva sekvenčné údaje alebo údaje z časových radov. Tieto algoritmy hlbokého učenia sa bežne používajú pri bežných alebo dočasných problémoch, ako je preklad jazyka, spracovanie prirodzeného jazyka, rozpoznávanie reči a popisovanie obrázkov. Sú používané v populárnych aplikáciach ako je Siri a iné hlasové vyhľadávania alebo Google Translate. Podobne ako iné typy učenia s učiteľom, aj rekurentné neurónové siete využívajú na učenie trénovacie údaje. Vyznačujú sa svojou „pamäťou“, pretože preberajú informácie z predchádzajúcich vstupov, aby ovplyvnili aktuálny vstup a výstup. Zatiaľ čo tradičné hlboké neurónové siete predpokladajú, že vstupy a výstupy sú na sebe nezávislé, výstup rekurentných neurónových sietí závisí od predchádzajúcich prvkov v sekvencii.
 \end{itemize}
 
-Príklady modelov učenia bez dozoru:
+Príklady modelov učenia bez učiteľa:
 \begin{itemize}
-  \item samo organizujúce sa mapy - pracujú s údajmi bez dozoru a zvyčajne pomáha pri redukcii rozmerov premenných. Výstupná dimenzia je vždy 2-rozmerná pre samo organizujúcu sa mapu. Každá synapsia spájajúca vstupné a výstupné uzly má priradenú váhu. Uzol s najväčším vplyvom v sieti sa nazýva BMU (najlepšia zhodná jednotka) a model aktualizuje svoje váhy, aby sa priblížili k BMU. Sú používané v prípade, že dostupné dáta neobsahujú výstupný parameter, prípadne pri kreatívnych projektoch v rámci umenia.
+  \item samo organizujúce sa mapy - pracujú s údajmi bez učiteľa a zvyčajne pomáha pri redukcii rozmerov premenných. Výstupná dimenzia je vždy 2-rozmerná pre samo organizujúcu sa mapu. Každá synapsia spájajúca vstupné a výstupné uzly má priradenú váhu. Uzol s najväčším vplyvom v sieti sa nazýva BMU (najlepšia zhodná jednotka) a model aktualizuje svoje váhy, aby sa priblížili k BMU. Sú používané v prípade, že dostupné dáta neobsahujú výstupný parameter, prípadne pri kreatívnych projektoch v rámci umenia.
   \item Boltzmannové stroje - nesledujú trend smerovania. Všetky uzly sú navzájom spojené v kruhovom hyperpriestore. Boltzmannov stroj môže tiež generovať všetky parametre modelu namiesto toho, aby pracoval s pevnými vstupnými parametrami. Takýto model sa označuje ako stochastický a líši sa od väčšiny deterministických modelov. Využíva sa pri monitoringu systémov.
-  \item Auto kódovače - Auto kódovače fungujú tak, že automaticky zakódujú dáta na základe vstupných hodnôt, potom vykonajú aktivačnú funkciu a nakoniec dáta dekódujú na výstup. Za pomoci určitej prekážky vstupnej premennej následne prebehne komprimácia dát do kategórii. Následne, ak existuje nejaká inherentná štruktúra, model auto kódovača ju identifikuje a využije na získanie výstupu. Často sa používajú v rámci systémov odporúčaní.
+  \item Auto enkodery - Auto kódovače fungujú tak, že automaticky zakódujú dáta na základe vstupných hodnôt, potom vykonajú aktivačnú funkciu a nakoniec dáta dekódujú na výstup. Za pomoci efektu nazývaného "bottleneck", teda určitej podmienke, ktorá separuje premenné vo vstupnej premennej následne prebehne komprimácia dát do kategórii. Následne, ak existuje nejaká inherentná štruktúra, model auto kódovača ju identifikuje a využije na získanie výstupu. Často sa používajú v rámci systémov odporúčaní.
 \end{itemize}
-
-
 
 \subsubsection{Vrstvy hlbokého učenia}
-Vrstva je stavebným kameňom najvyššej úrovne v hlbokom učení. Vrstva je kontajner, ktorý zvyčajne prijíma vážený vstup, transformuje ho množinou väčšinou nelineárnych funkcií a potom tieto hodnoty odovzdá ako výstup ďalšej vrstve. Vrstva je zvyčajne jednotná, to znamená, že obsahuje iba jeden typ aktivačnej funkcie, združovanie, konvolúciu atď., takže ju možno ľahko porovnávať s inými časťami siete. Prvá a posledná vrstva v sieti sa nazývajú vstupná a výstupná vrstva a všetky vrstvy medzi nimi sa nazývajú skryté vrstvy.
+Nakoľko sa v našej práci zaoberáme predpoveďou počasia, budeme skúmať modely s plne prepojenými a rekurentnými vrstvami, ktoré v nasledujúcej časti aj opíšeme. Vrstva je kontajner, ktorý zvyčajne prijíma vážený vstup, transformuje ho množinou väčšinou nelineárnych funkcií a potom tieto hodnoty odovzdá ako výstup ďalšej vrstve. Vrstva je zvyčajne jednotná, to znamená, že obsahuje iba jeden typ aktivačnej funkcie, združovanie, konvolúciu atď., takže ju možno ľahko porovnávať s inými časťami siete. Prvá a posledná vrstva v sieti sa nazývajú vstupná a výstupná vrstva a všetky vrstvy medzi nimi sa nazývajú skryté vrstvy.
 
-\paragraph{Dense vrstva} je vrstva, ktorá je hlboko spojená s jej predchádzajúcou vrstvou, čo znamená, že neuróny vrstvy sú spojené s každým neurónom predchádzajúcej vrstvy. Táto vrstva je najčastejšie používanou vrstvou v sieťach umelých neurónových sietí. Funkcia tejto vrstvy je meniť rozmer vektoru pomocou každého neurónu.
+\paragraph{Plne prepojená vrstva} je vrstva, ktorá je hlboko spojená s jej predchádzajúcou vrstvou, čo znamená, že neuróny vrstvy sú spojené s každým neurónom predchádzajúcej vrstvy. Táto vrstva je najčastejšie používanou vrstvou v sieťach umelých neurónových sietí. Funkcia tejto vrstvy je meniť rozmer vektoru pomocou každého neurónu.
 Neurón tejto vrstvy v modeli dostáva výstup z každého neurónu svojej predchádzajúcej vrstvy, kde prebehlo násobenie maticového vektora. Násobenie maticového vektora je postup, pri ktorom sa riadkový vektor výstupu z predchádzajúcich vrstiev rovná stĺpcovému vektoru vrstvy. Všeobecným pravidlom násobenia matice-vektor je, že riadkový vektor musí mať toľko stĺpcov ako stĺpcový vektor. Následne výpočet prebieha za pomoci vzorca na obrázku \ref{maticavektor}.
 
 \begin{figure}[!htbp]
@@ -402,14 +401,15 @@ Ako môžeme vidieť na obrázku \ref{gru}, koncept obsahuje dve brány, resetov
 GRU má menej tenzorových operácií, preto tréningový proces je o niečé rýchlejší ako v prípade LSTM. Neexistuje avšak jednoznačný výsledok, ktorá vrstva je lepšia, preto sa pri vytváraní modelov využívajú oba prístupy a následne sa výsledky porovnávajú za pomoci evaluačných parametrov spomínaných v podsekcii \ref{evaluacia}. 
 
 \subsubsection{Hyperparametre hlbokého učenia}
-\paragraph{Skryté vrstvy} sú vrstvy medzi vstupnou a výstupnou vrstvou. Mnoho skrytých jednotiek vo vrstve môže vďaka technike regularizácie zvýšiť presnosť. Menší počet jednotiek môže spôsobiť nedostatočné natrénovanie \cite{hyperparams}.
+Pri procese trénovania je nútne nastaviť hyperparametrov za účelom získania dobrých výsledkov. Tie, ktoré najviac ovplyvňujú tréning opisujeme v časti nižšie.
+\paragraph{Počet skrytých vrstiev} predstavuje počet vrstiev, ktoré sú medzi vstupnou a výstupnou vrstvou. Mnoho skrytých jednotiek vo vrstve môže vďaka technike regularizácie zvýšiť presnosť. Menší počet jednotiek môže spôsobiť nedostatočné natrénovanie \cite{hyperparams}.
 
-\paragraph{Dropout} je technika regularizácie za účelom zvýšenia presnosti validácie, čím sa zvyšuje sila generalizácie. Vo všeobecnosti sa používa hodnotu v intervale 20 až 50 percent neurónov, pričom 20 percent poskytuje ideálny počiatočný bod. Príliš nízka hodnota má minimálny účinok a príliš vysoká hodnota zase nedostatočné trénovanie. Pravdepodobnosť dosiahnutia lepšieho výkonu nastáva vtedy, keď sa dropout použije vo väčšej sieti.
+\paragraph{Dropout} je technika regularizácie za účelom zvýšenia presnosti validácie, čím sa zvyšuje sila generalizácie. Vo všeobecnosti sa používa hodnotu v intervale 20 až 50 percent neurónov, pričom 20 percent poskytuje ideálny počiatočný bod. Príliš nízka hodnota má minimálny účinok a príliš vysoká hodnota zase nedostatočné trénovanie. Pravdepodobnosť dosiahnutia lepšieho výkonu nastáva vtedy, keď sa dropout použije vo väčšej sieti. Táto metóda rieši problém preťaženia v sieťach s veľkým množstvom parametrov náhodným vypustením jednotiek a ich spojení z neurónovej siete počas tréningu. Bolo dokázané, že táto metóda zlepšuje výkon neurónových sietí pri úlohách učenia s trénovacou množinou v mnohých oblastiach. 
 
 \paragraph{Activation function}
 V neurónových sieťach sa aktivačná funkcia používa na transformáciu vstupných hodnôt neurónov. Do neurónových sietí vnáša nelinearitu , aby sa siete naučili vzťah medzi vstupnými a výstupnými hodnotami.
 
-\paragraph{Rýchlosť učenia} definuje, ako rýchlo sieť aktualizuje svoje parametre. Nízka rýchlosť učenia spomaľuje proces učenia avšak výhodou je plynulá konvergencia. Väčšia rýchlosť učenia urýchľuje učenie, ale nemusí správne konvergovať, ako môžeme vidieť na obrázku \ref{learningrate}. Zvyčajne sa uprednostňuje postupne klesajúca miera rýchlosti učenia.
+\paragraph{Rýchlosť učenia} definuje, ako rýchlo sieť aktualizuje svoje parametre. Nízka rýchlosť učenia spomaľuje proces učenia avšak výhodou je plynulá konvergencia. Väčšia rýchlosť učenia urýchľuje učenie, ale nemusí správne konvergovať, ako môžeme vidieť na obrázku \ref{learningrate}. Zvyčajne sa uprednostňuje postupne klesajúca miera rýchlosti učenia. Rýchlosť učenia zároveň riadi, akú veľkú zmenu model zažíva v reakcii na odhadovanú chybu pri každej zmene váh modelu. Metóda poklesu rýchlosti učenia je proces prispôsobenia rýchlosti učenia na zvýšenie výkonu a skrátenie času tréningu.
 
 \begin{figure}[!htbp]
   \centering
@@ -424,9 +424,9 @@ V neurónových sieťach sa aktivačná funkcia používa na transformáciu vstu
 \paragraph{Veľkosť dávky} je počet čiastkových vzoriek odovzdaných sieti, po ktorých sa vykoná aktualizácia parametrov. Predvolená veľkosť dávky sa väčšinou zadáva v binárnych násobkoch a najčastejšia východzia hodnota predstavuje hodnotu 32. Následne sa veľkosť zvyšuje alebo znižuje podľa procesu tréningu, v prípade pomalého trénovania sa dávka zvyšuje, teda na jednu dávku pripadá viac dát.
 
 
-\subsection{Výstupy a evaluácia výsledkov}
+\subsection{Výstupy a evaluácia výsledkov pri regresnom probléme}
 \label{evaluacia}
-
+Predpoveď počasia je problematika predikcie časového radu, ktorá patrí pod regresné problémy. K regresným problémom sa vo všeobecnosti viažu primárne metriky, ktoré opíšeme v tejto časti.
 \paragraph{MAE} Stredná absolútna chyba je metrika hodnotenia modelu používaná v regresných modeloch. Stredná absolútna chyba modelu je priemer absolútnych hodnôt vzhľadom na testovaciu množinu jednotlivých chýb predikcie na všetkých inštanciách testovacej množiny. Každá chyba predpovede je rozdiel medzi skutočnou hodnotou a predpovedanou hodnotou pre inštanciu \cite{mae}. \newline
 $MAE = {\frac{1}{n}\sum_{i=1}^{n}(Y-\widehat{Y})}$
 
@@ -571,20 +571,17 @@ Počiatočný súbor dát môžeme vidieť na obrázku \ref{dataset}.
 
 
 
-
+\newpage
 
 \subsubsection{Výber premennej, ktorú chceme predikovať a závislé premenné}
 \subsubsection{Príprava dát na fázu trénovania}
 
-
-\newpage
-
 \subsection{Čiastočné výsledky}
 
-\subsubsection{Dense model} 
+\subsubsection{Plne prepojený model} 
 \subsubsection{LSTM model} 
 \subsubsection{GRU model} 
-\subsubsection{Porovnanie Dense, GRU a LSTM modelu}
+\subsubsection{Porovnanie plne prepojeného, GRU a LSTM modelu}
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/GRU, LSTM and Dense.png}
