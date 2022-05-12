@@ -448,23 +448,60 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
 \subsection{Dáta}
 
 
-\subsubsection{Zber súborov dát}
-\subsubsection{Importovanie vhodných knižníc}
-\subsubsection{Importovanie súboru dát}
-
-\subsubsection{Úprava súboru dát}
-\subsubsection{Výber premennej na predikciu a závislé premenné}
-\subsubsection{Príprava dát na fázu trénovania}
-
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=8cm]{img/workflow.png}
+  \includegraphics[width=8cm]{img/multivariate LSTM Diagram.drawio.png}
   \caption{Proces praktickej časti práce.}
   \label{workflow}
-  \captionsource{Zdroj: }{???}
+  \captionsource{Zdroj: }{draw.io.}
 \end{figure}
 
+\subsubsection{Zber súborov dát}
+Prvá fáza praktickej časti spočívala v hľadaní historických dát počasia na Marse. Možností bolo niekoľko, nakoľko na orbite okolo Marsu a aj priamo na Marse existuje hneď niekoľko riešení, ktoré monitorujú stav počasia na planéte. Spoločnosť NASA ponúka nástroj k rýchlemu hľadaniu v rámci ich misii, stačí si na  \href{https://pds.nasa.gov/datasearch/data-search/}{stránke} vybrať o akú misiu ide a následne nájdete výsledky relevantných riešení. Medzi tieto riešenia patrí napríklad:
+\begin{itemize}
+    \item Viking Orbiter 1 \& 2: misia pozostávala z dvoch kozmických lodí, Viking 1 a Viking 2, z ktorých každá pozostávala z orbiteru a pristávacieho modulu. Orbitery mapovali povrch Marsu v rozlíšení 150 až 300 metrov. Niektoré oblasti boli nasnímané s rozlíšením 8 metrov. Pristávacie moduly získali povrchové snímky s vysokým rozlíšením a analyzovali vzorky povrchu na známky života. Meteorologické stanice a seizmometre modulov taktiež dokázali vrátiť údaje na pozemné stanice \cite{viking}.
+    \item Mars Reconnaissance Orbiter (MRO): Mars Reconnaissance Orbiter vstúpil na obežnú dráhu Marsu 10. marca 2006. Nasledujúcich šesť mesiacov trvalo skonsolitovanie obežnej dráhy na vedeckú obežnú dráhu 255 x 320 km (s periapsou nad južným pólom a apoapsiou nad severným pólom), čo viedlo k dvanástim slnečno-synchrónnym obehom za deň. Prístroje zahŕňajú kameru zobrazujúcu viditeľné spektrum s vysokým rozlíšením alebo infračervený spektrometer s vysokým rozlíšením na štúdium zloženia povrchu. Vedecké ciele misie sú: charakterizovať súčasnú klímu Marsu a jeho fyzikálne mechanizmy sezónnych a medziročných klimatických zmien, hľadať miesta vykazujúce dôkazy o aktivite vody a identifikovať miesta s najvyšším potenciálom pre vedu na pristátie, prípadne návrat vzoriek budúcimi misiami na Marse \cite{mro}.
+    \item InSight: pristál na Marse 26. novembra 2018. Cieľom misie je skúmať planétu do hĺbky, teda smerom do podzemia. Primárna fáza misie je naplánovaná na obdobie jedného marťanského roka. Hlavnými komponentmi prístrojového balíka sú seizmický experiment pre vnútornú štruktúru (SEIS) a sonda tepelného toku a fyzikálnych vlastností (HP3). medzi ďalšie zariadenia patria senzor teploty, vetra a tlaku. Poďla oficialnej stránky aktuálne existujú merania z rozmedzia 30.11.2018 do termínu 29.12.2021 \cite{insight}.
+    \item Perseverance: bol vypustený 17. júla 2020 s experimentálnym vrtuľníkom Ingenuity. Pristál v kráteri Jezero (18,4 stupňa severnej zemepisnej šírky, 77,5 stupňa zemepisnej dĺžky.) 18. februára 2021. Kozmická loď na obežnej dráhe odhalila, že kráter obsahoval starovekú deltu a potvrdila prítomnosť ílových minerálov a uhličitanov. Ich vznik predpokladal vlhké prostredie schopné zachovať dôkazy o starovekom živote. Na palube sa nachádza vedecký experiment MEDA (Mars Enviromental Dynamics Analyzer). Cieľom MEDA je poskytovať kontinuálne merania, ktoré charakterizujú denné a sezónne cykly miestnych prašných vlastností a ich časovú odozvu na meteorológiu a lokálne povrchové prostredie \cite{perseverance}. Vzhľadom na aktuálnosť misie ešte nie je možné použiť dostatočný súbor dát na predpoveď počasia. 
+    \item Curiosity: primárny prístroj na rovery Curiosity, REMS (Rover Environmental Monitoring Station), zhromažďuje meteorologické údaje. Bol navrhnutý tak, aby zaznamenával šesť atmosférických parametrov: rýchlosť/smer vetra, tlak, relatívnu vlhkosť, teplotu vzduchu, prízemnú teplotu a ultrafialové žiarenie. REMS má frekvenciu merania 1 Hz a typicky odoberá 5-minútové vzorky každú hodinu \cite{curiosity}. Práve súbor dát z tohto zariadenia sme sa rozhodli použiť aj v práci.
+\end{itemize}
+
+Zoznam orbiterov, ktorý obiehajú po orbite Marsu môžeme vidieť na obrázku \ref{orbiters}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/orbiters.png}
+  \caption{Prehľad orbiterov okolo Marsu a ich určenie.}
+  \label{orbiters}
+  \captionsource{Zdroj: }{https://atmos.nmsu.edu/data_and_services/atmospheres_data/MARS/mars_orbiter.html.}
+\end{figure}
+\newpage
+
+Zoznam roverov a statických pristávacích modulov môžeme vidieť na obrázku \ref{landers}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/landers.png}
+  \caption{Prehľad pristávacích modulov a roverov na povrchu Marsu a ich prístroje.}
+  \label{landers}
+  \captionsource{Zdroj: }{https://atmos.nmsu.edu/data_and_services/atmospheres_data/MARS/mars_lander.html.}
+\end{figure}
+
+V rámci tejto diplomovej práce sme si zvolili využiť súbor dát získavaných z prístroja REMS rovera Curiosity. Ako hlavný dôvod môžeme uviesť dĺžku meraní, ktoré začali 7. augusta 2012 a boli ukončené 6.11.2021. Ide teda o takmer 10 rokov na Zemi alebo po prepočne o približne 5 rokov na Marse. Na obrázku \ref{curiosity_landing_site}, ktorú sme získali vďaka tejto \href{http://www-mars.lmd.jussieu.fr/mars/access.html}{stránke} môžeme vidieť pozíciu pristátia rovera a jeho približnú lokalitu operovania, teda miesto, odkiaľ sme čerpali údaje v rámci planéty Mars. 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/surface_temp.png}
+  \caption{Mapa teplôt na povrchu Marsu s vyznačeným miestom meraní Curiosity (zelené označenie v pravej strednej oblasti), konkrétne súradnice: (-4.6 S,137.4 E)}
+  \label{curiosity_landing_site}
+  \captionsource{Zdroj: }{http://www-mars.lmd.jussieu.fr/}
+\end{figure}
+\newpage
+
+\subsubsection{Importovanie vhodných knižníc}
+
+\subsubsection{Úprava súboru dát}
+Počiatočný súbor dát môžeme vidieť na obrázku \ref{dataset}.
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=14cm]{img/datase.png}
@@ -473,18 +510,6 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
   \captionsource{Zdroj: }{???}
 \end{figure}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/surface_temp.png}
-  \caption{Mapa teplôt na povrchu Marsu s vyznačeným miestom meraní Curiosity (zelené označenie v pravej strednej oblasti), konkrétne súradnice: (-4.6 S,137.4 E)}
-  \label{temp}
-  \captionsource{Zdroj: }{http://www-mars.lmd.jussieu.fr/}
-\end{figure}
-\newpage
-
-
-
-\subsubsection{Dôležité parametre}
 \begin{itemize}
     \item SOL\char`_CHRONOLOGICAL
     \item EARTH\char`_DATE
@@ -502,10 +527,6 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
     \item YEAR\char`_SOL
 \end{itemize}
 
-
-
-\subsubsection{Príprava dát}
-Tu budem opisovat informacie o procese tvorby dat.
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=16cm]{img/full_df.png}
@@ -513,8 +534,6 @@ Tu budem opisovat informacie o procese tvorby dat.
   \label{fulldf}
   \captionsource{Zdroj: }{???}
 \end{figure}
-
-\paragraph{Čistenie dát} budem opisovat tu.
 
 \begin{figure}[!htbp]
   \centering
@@ -540,9 +559,6 @@ Tu budem opisovat informacie o procese tvorby dat.
   \captionsource{Zdroj: }{???}
 \end{figure}
 
-
-\newline
-
 \paragraph{Hľadanie závislostí} budem opisovat v tejto casti
 \begin{figure}[!htbp]
   \centering
@@ -553,16 +569,22 @@ Tu budem opisovat informacie o procese tvorby dat.
 \end{figure}
 
 
+
+
+
+
+\subsubsection{Výber premennej, ktorú chceme predikovať a závislé premenné}
+\subsubsection{Príprava dát na fázu trénovania}
+
+
 \newpage
 
-\subsubsection{Implementácia}
-\subsubsection{Typy neurónových sieti}
-\subsubsection{Odskúšané modely}
+\subsection{Čiastočné výsledky}
 
-\subsection{Výsledky}
-
-
-\subsubsection{Jednorozmerný model LSTM}
+\subsubsection{Dense model} 
+\subsubsection{LSTM model} 
+\subsubsection{GRU model} 
+\subsubsection{Porovnanie Dense, GRU a LSTM modelu}
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=10cm]{img/GRU, LSTM and Dense.png}
@@ -570,6 +592,47 @@ Tu budem opisovat informacie o procese tvorby dat.
   \label{univariate}
   \captionsource{Zdroj: }{???}
 \end{figure}
+
+\subsubsection{N-Beats model} 
+Tento model bol jedným z prvých, ktorý nás zaujal a chceli sme otestovať jeho kvality. Ide o typ neurónovej siete, ktorý bol prvýkrát opísaný v článku z roku 2019 \cite{n-beats}. Autori uviedli, že N-BEATS prekonali víťaza súťaže o prognózu M4 o 3 \%. M4 je súborom dát dokopy 100 000 časových radov použitých pre súťaž prognostiky Makridakis, výzvy, v ktorej cieľom výskumníkov je vyvíjať stále presnejšie modely predpovedí časových radov. Víťaz M4 bol hybrid medzi rekurentnou neurónovou sieťou a Holt-Wintersovým exponenciálnym vyhladzovaním – zatiaľ čo N-BEATS implementuje „čistú“ hlbokú neurónovú architektúru \cite{m4}. V našom prípade sme použili implementáciu PyTorch N-BEATS knižnice Darts multi-forecast, ktorá je opísaná v článku citácie \cite{beat-impl}. Knižnica kombinuje triedy súvisiace s predpoveďou PyTorch s triedami niekoľkých ďalších balíkov. 
+
+V prvom rade sme sa zamerali na importovanie vhodného súboru dát. Premennú na predikciu sme si zvolili maximálnu dennú teplotu. Následne bolo nutné súbor dát pripraviť špecificky, úplne odlišne od akéhokoľvek iného prístupu, ktorý sme v rámci práce použili. Našimi stĺpcami boli:
+\begin{itemize}
+    \item series: číslo série poslanej do trénovania.
+    \item time\_idx: jedinečné číslo každého merania v sérii.
+    \item value: hodnota merania premennej, ktorú chceme predikovať.
+    \item static: premenná, ktorú sme v konečnom dôsledku mohli zanedbať, bola pre nás bezvýznamná.
+    \item date: dátum merania.
+\end{itemize}
+
+Následne sme si určili dĺžku dát, ktoré berieme v úvahu za účelom trénovania a následne koľko dní chceme predikovať. Pre účel trénovania sme zobrali 30 dní z ktorých sme chceli predikovať 10 dní.
+
+\paragraph{Proces tréningu} spočíval v príprave modelu k prijatiu súboru dát a následnom trénovacom procese. V prvom rade išlo o vyjadrenie premenných, ktoré sme vložili do metódy, nastavili sme validačnú množinu, veľkosť dávky a zistili vhodnú hodnotu učiaceho procesu, ako môžeme vidieť aj na obrázku \ref{lr-tune}. 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/n-beats-lr.png}
+  \caption{Hľadanie ideálneho parametra learning rate.}
+  \label{lr-tune}
+\end{figure}
+
+\newpage
+Po ňom už nasledovalo samostatné trénovanie. Po trénovacom procese sme si dali vykresliť niekoľko príkladov predikcii. Dva príklady môžeme vidieť aj na obrázkoch \ref{beats_res1} a \ref{beats_res2}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/beats_res1.png}
+  \caption{Výsledok predpovede maximálnej teploty pri strednej chybe 0.92.}
+  \label{beats_res1}
+\end{figure}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/beats_res2.png}
+  \caption{Výsledok predpovede maximálnej teploty pri strednej chybe 0.878.}
+  \label{beats_res2}
+\end{figure}
+
+\newpage
+Na záver sme zhodnotili, že dané výsledky sú uspokojivé, nakoľko sledujú trend vývoja a napriek malej dostupnosti dát dokážeme pomocou tejto technológie predpovedať vývoj teploty s presnosťou pod 1 °C. Zároveň sme ale narazili na jeden veľmi dôležitý limitujúci faktor a to ten, že daná technológia nepodporuje pridávanie závislých premenných, teda predpoveď dokáže vytvárať len na základe histórie jednej premennej. To nás viedlo k záveru, že napriek kvalitným výsledkom musíme nájsť model s možnosťou zahrnutia závislých premenných do procesu trénovania. Kód na daný model môžete nájsť v citácii \cite{beats_code}.
 
 
 \subsubsection{Viacrozmerný model LSTM}
@@ -581,55 +644,10 @@ Tu budem opisovat informacie o procese tvorby dat.
   \captionsource{Zdroj: }{???}
 \end{figure}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/multilstm.png}
-  \caption{Porovnanie výsledkov jednorozmerného a viacrozmerného LSTM modelu.}
-  \label{multilstm}
-  \captionsource{Zdroj: }{???}
-\end{figure}
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/features.png}
-  \caption{Parametre brané v úvahu pri trénovaní modelu.}
-  \label{features}
-\end{figure}
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/loss.png}
-  \caption{Graf priebehu stratovej funkcie v čase.}
-  \label{lossfunction}
-\end{figure}
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/distro_chyby.png}
-  \caption{Distribúcia hodnôt chyby v Kelvinoch.}
-  \label{dist_error}
-\end{figure}
-
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=14cm]{img/dist_abs_chyby.png}
-  \caption{Distribúcia absolútnych chýb v Kelvinoch.}
-  \label{dest_abs_error}
-\end{figure}
-
-\begin{table}[]
-\begin{tabular}{ll}
-Počet predpovedaných dní: & 129       \\
-Stredná hodnota chyby:    & 2.336213 K  \\
-Priemerná hodnota chyby:  & 2.224387 K  \\
-Minimálna hodnota chyby:  & 0.048517 K  \\
-Maximálna hodnota chyby:  & 14.580717 K
-\end{tabular}
-\end{table}
 
 \newpage
 \subsection{Finálny model}
-Vo finálnom modeli sme využili architektúru viacrozmerného LSTM modelu, ktorý na predpoveď používa údaje za posledných 7 dní aby predpovedal nasledujúci deň. V rámci modelu využívam parametre T_min, T_max, P_min, P_max, VMR_min, VMR_max, RH_min, RH_max. Parameter som na základe predchádzajúcich skúseností z trénovacej množiny parametrov vylúčil, nakoľko jeho skresľovanie údajov malo vysoký vplyv na kvalitu predpovede.
+Vo finálnom modeli sme využili architektúru viacrozmerného LSTM modelu, ktorý na predpoveď používa údaje za posledných 7 dní aby predpovedal nasledujúci deň. V rámci modelu využívam parametre T\_min, T\_max, P\_min, P\_max, VMR\_min, VMR\_max, RH\_min, RH\_max. Parameter som na základe predchádzajúcich skúseností z trénovanej množiny parametrov vylúčil, nakoľko jeho skresľovanie údajov malo vysoký vplyv na kvalitu predpovede.
 
 \paragraph{Príprava finálneho súboru dát} začal vyčistením všetkých neesenciálnych údajov. Po ubezpečení, že všetky stĺpce súboru sú vo vyhovujúcom formáte sme mohli pokračovať v procese mazania extrémnych dát, ktoré boli s vysokou pravdepodobnosťou chybou merania. 
 \begin{figure}[!htbp]
@@ -638,7 +656,8 @@ Vo finálnom modeli sme využili architektúru viacrozmerného LSTM modelu, ktor
   \caption{Súbor dát pripravený na ďalšie spracovanie.}
   \label{dest_abs_error}
 \end{figure}
-V rámci prípravy sme po vyčistení súboru získali dokopy 1297 jedinečných údajov, čo predstavuje približne 2 roky na Marse. Graf vývoja teploty môžeme vidieť na nasledujúcom obrázku \ref{dailyT}.
+\newpage
+V rámci prípravy sme po vyčistení súboru získali dokopy 1297 jedinečných údajov, čo predstavuje približne 2 roky na Marse. Graf vývoja hodnôt môžeme vidieť na nasledujúcom obrázku \ref{features1}.
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=14cm]{img/features1.png}
@@ -678,10 +697,19 @@ Po príprave dát pristupujeme k samotnému trénovaniu modelu, ktorý môžeme 
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=13cm]{img/tabulka_hodnot.png}
-  \caption{Sumár modelu.}
+  \caption{Tabuľka zobrazujúca teplotu školovanú, absolútnu a rozdiel hodnôt.}
   \label{tabhondot}
 \end{figure}
 
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/loss.png}
+  \caption{Graf priebehu stratovej funkcie v čase.}
+  \label{lossfunction}
+\end{figure}
+
+\newline
 Následne môžeme dáta vizualizovať vo výsledkoch na obrázku \ref{predpoved}.
 \begin{figure}[!htbp]
   \centering
@@ -689,3 +717,36 @@ Následne môžeme dáta vizualizovať vo výsledkoch na obrázku \ref{predpoved
   \caption{Graf predpovede parametra Tmax na 129 dní.}
   \label{predpoved}
 \end{figure}
+
+\newline
+Distribúciu chyby oproti skutočnej hodnote môžeme vidieť na obrázku \ref{dist_error}.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/distro_chyby.png}
+  \caption{Distribúcia hodnôt chyby v Kelvinoch.}
+  \label{dist_error}
+\end{figure}
+
+\newline
+Hodnotu distribúcie absolútnych chýb je možné vidieť na obrázku \ref{dest_abs_error}
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/dist_abs_chyby.png}
+  \caption{Distribúcia absolútnych chýb v Kelvinoch.}
+  \label{dest_abs_error}
+\end{figure}
+
+\newpage
+Výsledné hodnoty odchýlky voči reálnemu meraniu mám zobrazené v nasledujúcej tabuľke \ref{tab_chyby}.
+\newline
+\begin{table}[]
+\caption{Výsledné parametre hodnôt}
+\label{tab_chyby}
+\begin{tabular}{ll}
+Počet predpovedaných dní: & 129       \\
+Stredná hodnota chyby:    & 2.336213 K  \\
+Priemerná hodnota chyby:  & 2.224387 K  \\
+Minimálna hodnota chyby:  & 0.048517 K  \\
+Maximálna hodnota chyby:  & 14.580717 K
+\end{tabular}
+\end{table}
