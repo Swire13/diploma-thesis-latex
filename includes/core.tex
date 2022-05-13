@@ -150,6 +150,7 @@ Dôležitým parametrom, ktorý určuje dĺžku mesiacov ako na Marse tak aj na 
 
 \begin{table}[!htbp]
 \caption{Rozdelenie dĺžok mesiacov na Marse.}
+\label{mesiace_dlzka}
 \centering
 \begin{tabular}{|l|l|l|l|}
 \hline 
@@ -335,7 +336,14 @@ Príklady modelov učenia bez učiteľa:
 \subsubsection{Vrstvy hlbokého učenia}
 Nakoľko sa v našej práci zaoberáme predpoveďou počasia, budeme skúmať modely s plne prepojenými a rekurentnými vrstvami, ktoré v nasledujúcej časti aj opíšeme. Vrstva je kontajner, ktorý zvyčajne prijíma vážený vstup, transformuje ho množinou väčšinou nelineárnych funkcií a potom tieto hodnoty odovzdá ako výstup ďalšej vrstve. Vrstva je zvyčajne jednotná, to znamená, že obsahuje iba jeden typ aktivačnej funkcie, združovanie, konvolúciu atď., takže ju možno ľahko porovnávať s inými časťami siete. Prvá a posledná vrstva v sieti sa nazývajú vstupná a výstupná vrstva a všetky vrstvy medzi nimi sa nazývajú skryté vrstvy.
 
-\paragraph{Plne prepojená vrstva} je vrstva, ktorá je hlboko spojená s jej predchádzajúcou vrstvou, čo znamená, že neuróny vrstvy sú spojené s každým neurónom predchádzajúcej vrstvy. Táto vrstva je najčastejšie používanou vrstvou v sieťach umelých neurónových sietí. Funkcia tejto vrstvy je meniť rozmer vektoru pomocou každého neurónu.
+\paragraph{Plne prepojená vrstva} je vrstva, ktorá je hlboko spojená s jej predchádzajúcou vrstvou, čo znamená, že neuróny vrstvy sú spojené s každým neurónom predchádzajúcej vrstvy, ako je to znázornené na obrázku \ref{dense_layer}. Táto vrstva je najčastejšie používanou vrstvou v sieťach umelých neurónových sietí. Funkcia tejto vrstvy je meniť rozmer vektoru pomocou každého neurónu.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=12cm]{img/dense_layer.png}
+  \caption{Názorná ukážka plne prepojenej siete.}
+  \label{dense_layer}
+  \captionsource{Zdroj: }{https://medium.com/appengine-ai/dense-layers-in-artificial-intelligence-b2f79cc1534a.}
+\end{figure}
 Neurón tejto vrstvy v modeli dostáva výstup z každého neurónu svojej predchádzajúcej vrstvy, kde prebehlo násobenie maticového vektora. Násobenie maticového vektora je postup, pri ktorom sa riadkový vektor výstupu z predchádzajúcich vrstiev rovná stĺpcovému vektoru vrstvy. Všeobecným pravidlom násobenia matice-vektor je, že riadkový vektor musí mať toľko stĺpcov ako stĺpcový vektor. Následne výpočet prebieha za pomoci vzorca na obrázku \ref{maticavektor}.
 
 \begin{figure}[!htbp]
@@ -352,7 +360,7 @@ Hodnoty matice sú natrénované parametre predchádzajúcich vrstiev, ktoré m�
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=8cm]{img/lstm.png}
+  \includegraphics[width=14cm]{img/lstm(1).png}
   \caption{Princíp LSTM buniek a ich operácie.}
   \label{lstm}
   \captionsource{Zdroj: }{???}
@@ -363,10 +371,10 @@ Základným konceptom LSTM je stav bunky a jeho rôzne brány. Stav bunky funguj
 
 Brány obsahuje sigmoidné aktivácie. Aktivácia sigmoidom je podobná aktivácii tanh. Rozdiel je, že kým pri tanh sa hodnoty vložia do rozmedzia hodnôt medzi -1 a 1, pri sigmoide je použitý interval hodnôt medzi 0 a 1. Užitočnosť je vo fakte, že každá zabudnutá hodnota nadobúda hodnotu 0 a teda následné násobenie hodnotu nemení. Taktiež akékoľvek číslo vynásobené 1 sa rovná rovnakej hodnote, preto hodnota zostáva rovnaká alebo je „zachovaná“. Sieť sa v procese učí, ktoré údaje nie sú dôležité a preto môžu byť údaje zabudnuté alebo zachované. Typy brán v sieti sú:
 \begin{itemize}
-    \item Brána zabudnutia: Táto brána rozhoduje o tom, aké informácie by sa mali vyhodiť alebo ponechať. Informácie z predchádzajúceho skrytého stavu a informácie z aktuálneho vstupu prechádzajú cez sigmoidnú funkciu. Hodnoty sú medzi 0 a 1. Čím bližšie k 0 znamená zabudnúť a čím bližšie k 1 znamená ponechať.
-    \item Vstupná brána: Na aktualizáciu stavu bunky máme vstupnú bránu. Najprv prenesieme predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. To rozhoduje o tom, ktoré hodnoty sa budú aktualizovať transformáciou hodnôt na hodnotu medzi 0 a 1. 0 znamená nedôležité a 1 znamená dôležité. Skrytý stav je tiež možné odovzdať spolu s aktuálnym vstup do funkcie tanh, čo zabezpečí interval hodnôt -1 a 1 čo pomôže s regulováciou siete. Potom sa výstup násobí sigmoidným výstupom. Sigmoidný výstup rozhodne, ktoré informácie je dôležité zachovať z tanhového výstupu.
-    \item Stav bunky: Teraz by sme mali mať dostatok informácií na výpočet stavu bunky. Stav bunky sa bodovo vynásobí vektorom zabudnutia. Vďaka tomu môžeme vypustiť hodnoty v stave bunky, ktoré sa násobia hodnotami blízkymi 0. Následne vezmeme výstup zo vstupnej brány a urobíme bodové sčítanie, ktoré aktualizuje stav bunky na nové, relevantné hodnoty. Vďaka tomu získavame nový bunkový stav.
-    \item Výstupná brána: Výstupná brána rozhoduje o tom, aký by mal byť ďalší skrytý stav. Skrytý stav obsahuje informácie o predchádzajúcich vstupoch a používa sa aj na predpovede. Najprv sa vloží predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. Potom sa odovzdá novo upravený stav bunky funkcii tanh. Tá vynásobí tanh výstup sigmoidným výstupom, aby sa rozhodlo, aké informácie má skrytý stav niesť. Výstupom je skrytý stav. Nový stav bunky a nový skrytý stav sa potom prenesú do ďalšieho časového kroku.
+    \item Brána zabudnutia (na obrázku \ref{lstm} fialová farba): Táto brána rozhoduje o tom, aké informácie by sa mali vyhodiť alebo ponechať. Informácie z predchádzajúceho skrytého stavu a informácie z aktuálneho vstupu prechádzajú cez sigmoidnú funkciu. Hodnoty sú medzi 0 a 1. Čím bližšie k 0 znamená zabudnúť a čím bližšie k 1 znamená ponechať.
+    \item Vstupná brána (na obrázku \ref{lstm} žltá farba): Na aktualizáciu stavu bunky máme vstupnú bránu. Najprv prenesieme predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. To rozhoduje o tom, ktoré hodnoty sa budú aktualizovať transformáciou hodnôt na hodnotu medzi 0 a 1. 0 znamená nedôležité a 1 znamená dôležité. Skrytý stav je tiež možné odovzdať spolu s aktuálnym vstup do funkcie tanh, čo zabezpečí interval hodnôt -1 a 1 čo pomôže s regulováciou siete. Potom sa výstup násobí sigmoidným výstupom. Sigmoidný výstup rozhodne, ktoré informácie je dôležité zachovať z tanhového výstupu.
+    \item Stav bunky (na obrázku \ref{lstm} oranžová farba): Teraz by sme mali mať dostatok informácií na výpočet stavu bunky. Stav bunky sa bodovo vynásobí vektorom zabudnutia. Vďaka tomu môžeme vypustiť hodnoty v stave bunky, ktoré sa násobia hodnotami blízkymi 0. Následne vezmeme výstup zo vstupnej brány a urobíme bodové sčítanie, ktoré aktualizuje stav bunky na nové, relevantné hodnoty. Vďaka tomu získavame nový bunkový stav.
+    \item Výstupná brána (na obrázku \ref{lstm} modrá farba): Výstupná brána rozhoduje o tom, aký by mal byť ďalší skrytý stav. Skrytý stav obsahuje informácie o predchádzajúcich vstupoch a používa sa aj na predpovede. Najprv sa vloží predchádzajúci skrytý stav a aktuálny vstup do sigmoidnej funkcie. Potom sa odovzdá novo upravený stav bunky funkcii tanh. Tá vynásobí tanh výstup sigmoidným výstupom, aby sa rozhodlo, aké informácie má skrytý stav niesť. Výstupom je skrytý stav. Nový stav bunky a nový skrytý stav sa potom prenesú do ďalšieho časového kroku.
 \end{itemize}
 
 
@@ -451,7 +459,7 @@ Jedným z možných riešení, ktoré je dostupné na internete pojednáva probl
 
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=8cm]{img/multivariate LSTM Diagram.drawio.png}
+  \includegraphics[width=8cm]{img/multivariate LSTM Diagram.drawio (1).png}
   \caption{Proces praktickej časti práce.}
   \label{workflow}
   \captionsource{Zdroj: }{draw.io.}
@@ -488,7 +496,7 @@ Zoznam roverov a statických pristávacích modulov môžeme vidieť na obrázku
   \captionsource{Zdroj: }{https://atmos.nmsu.edu/data_and_services/atmospheres_data/MARS/mars_lander.html.}
 \end{figure}
 
-V rámci tejto diplomovej práce sme si zvolili využiť súbor dát získavaných z prístroja REMS rovera Curiosity. Ako hlavný dôvod môžeme uviesť dĺžku meraní, ktoré začali 7. augusta 2012 a boli ukončené 6.11.2021. Ide teda o takmer 10 rokov na Zemi alebo po prepočne o približne 5 rokov na Marse. Na obrázku \ref{curiosity_landing_site}, ktorú sme získali vďaka tejto \href{http://www-mars.lmd.jussieu.fr/mars/access.html}{stránke} môžeme vidieť pozíciu pristátia rovera a jeho približnú lokalitu operovania, teda miesto, odkiaľ sme čerpali údaje v rámci planéty Mars. 
+V rámci tejto diplomovej práce sme si zvolili využiť súbor dát získavaných z prístroja REMS rovera Curiosity. Ako hlavný dôvod môžeme uviesť dĺžku meraní, ktoré začali 7. augusta 2012 a boli ukončené 6.11.2021. Ide teda o takmer 10 rokov na Zemi alebo po prepočne o približne 5 rokov na Marse. Na obrázku \ref{curiosity_landing_site}, ktorú sme získali vďaka tejto \href{http://www-mars.lmd.jussieu.fr/mars/access.html}{stránke} môžeme vidieť pozíciu pristátia rovera a jeho približnú lokalitu operovania, teda miesto, odkiaľ sme čerpali údaje v rámci planéty Mars. V tabuľke na tejto \href{https://atmos.nmsu.edu/PDS/data/mslrem_1001/DOCUMENT/DATA_EVENTS.TXT}{stránke} je možné taktiež vidieť rôzne udalosti daných dní, ktoré ovplyvnili merania. Podrobné informácie o samotných parametroch je možné nájsť na tejto \href{https://atmos.nmsu.edu/PDS/data/mslrem_1001/DOCUMENT/REMS_RDR_SIS.TXT}{stránke}.
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=14cm]{img/surface_temp.png}
@@ -498,10 +506,17 @@ V rámci tejto diplomovej práce sme si zvolili využiť súbor dát získavaný
 \end{figure}
 \newpage
 
-\subsubsection{Importovanie vhodných knižníc}
+\subsubsection{Výber vhodných technológií}
+Po vyhľadaní a príprave súboru dát sme pristúpili k výberu technológii, ktoré sme v projekte použili. Dôležité bolo vybrať si vhodný programovací jazyk a taktiež priestor, v ktorom bude prebiehať samotné trénovanie.
+
+\paragraph{Python}
+
+\paragraph{Jupyter}
+
+
 
 \subsubsection{Úprava súboru dát}
-Počiatočný súbor dát môžeme vidieť na obrázku \ref{dataset}.
+Na obrázku \ref{dataset} môžeme vidieť náhľad finálneho súboru dát pred spracovaním importovaný do systému Jupyter.
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=14cm]{img/datase.png}
@@ -510,21 +525,22 @@ Počiatočný súbor dát môžeme vidieť na obrázku \ref{dataset}.
   \captionsource{Zdroj: }{???}
 \end{figure}
 
+Môžeme vidieť dokopy 17 stĺpcov údajov, ktorého parametre si postupne opíšeme:
 \begin{itemize}
-    \item SOL\char`_CHRONOLOGICAL
-    \item EARTH\char`_DATE
-    \item LS
-    \item MARTIAN\char`_MONTH
-    \item MARS\char`_YEAR
-    \item T\char`_min
-    \item T\char`_max
-    \item P\char`_min
-    \item P\char`_max
-    \item VMR\char`_min
-    \item VMR\char`_max
-    \item RH\char`_min
-    \item RH\char`_max
-    \item YEAR\char`_SOL
+    \item SOL\char`_CHRONOLOGICAL: parameter predstavujúci chronologické zoradenie dní merania od prvého dátumu merania. Vzhľadom k tomu, že sme do úvahy meraní brali dni od prvého dňa nového roka na Marse, teda pri LS = 0, číslovanie nezačína od hodnoty 0 alebo 1. 
+    \item EARTH\char`_DATE: konvertovaná hodnota dátumu merania do pozemského času, resp. dátumu. Dátum je vo formáte MM/DD/YYYY, teda mesiac, deň a rok merania.
+    \item LS: jeden z najzásadnejších parametrov v rámci súboru dát. Parameter LS predstavuje uhol naklonenia Marsu v rámci svojej orbity okolo Slnka. V princípe to znamená, že sa meria uhol elipsy od hodnoty 0 stupňov do hodnoty 359 stupňov. Keď sa parameter vráti opať do svojej nulovej pozície, znamená to, že planéta absolvovala jednu rotáciu okolo svojej materskej hviezde a teda prešiel jeden rok na danej planéte. 
+    \item MARTIAN\char`_MONTH: Rozdelenie mesiacov tak, ako to môžeme vidieť v tabuľke \ref{mesiace_dlzka}.
+    \item MARS\char`_YEAR: Číslo meraného roku na Marse.
+    \item T\char`_min: Minimálna denná teplota v Kelvinoch na danej lokácii na Marse.
+    \item T\char`_max: Maximálna denná teplota v Kelvinoch na danej lokácii na Marse.
+    \item P\char`_min: Minimálny denný tlak na danej lokácii na Marse.
+    \item P\char`_max: Maximálny denný tlak na danej lokácii na Marse.
+    \item VMR\char`_min: Minimálny denný objemový zmiešavací pomer H2O v rozsahu <PPM (počet častíc na milión) < 400> na danej lokácii na Marse. 
+    \item VMR\char`_max: Maximálna denný objemový zmiešavací pomer H2O v rozsahu <PPM (počet častíc na milión) < 400> na danej lokácii na Marse. 
+    \item RH\char`_min: Minimálna denná vlhkosť ovzdušia v percentách na danej lokácii na Marse.
+    \item RH\char`_max: Maximálna denná vlhkosť ovzdušia v percentách na danej lokácii na Marse.
+    \item YEAR\char`_SOL: Chronologicky zoradené dni v danom roku na Marse.
 \end{itemize}
 
 \begin{figure}[!htbp]
