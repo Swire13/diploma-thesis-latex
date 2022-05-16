@@ -114,6 +114,7 @@ Veľký rozdiel Zeme a Marsu spočíva v tom, že Mars nemá žiadnu ozónovú v
 Okrem vyššie spomínaných prašných búrok sa môžu vyskytovať na Marse aj oblaky zložené z ľadových častíc CO2, ktoré sa primárne sústreďujú v oblasti veľkých sopiek, kde sa najčastejšie tvoria vďaka dvíhaním častíc vetrom do vyšších oblastí, kde následne tieto častice kondenzujú. Taktiež sa môžeme stretnúť aj s takzvanými polárnymi kuklami - oblačnosti v polárnej oblasti, ktotér tvoria široké opary. Tento jav zachytilo už niekoľko pozemných roverov, ktoré zaznamenali sneženie počas chladných rán pred východom Slnka \cite{pocasie_mars}. 
 
 \subsubsection{Ročné obdobia}
+\label{rocne_obdobia_mars}
 Teplota na Marse je oveľa nižšia ako na Zemi. Hlavné faktory, ktoré sa pod nízku teplotu podpisujú sú najmä vzdialenosť od Slnka a taktiež, ako sme spomínali vyššie, oveľa tenšia atmosféra tvorená prakticky výhradne oxidom uhličitým. Táto kombinácia faktorov robí z Marsu studený svet, kde môže teplota klesnúť až na hodnoty -120 °C, teda nižšie ako hodnoty namerané na našej planéte, kde sa podarilo doposiaľ namerať najnižšiu teplotu na úrovni -90 °C. V prípade najvyšších teplôt na Marse ide o hodnoty približne 20 °C. Táto teplota je výrazne nižšia v porovnaní s maximálnou nameranou teplotou na našej planéte, čo spôsobuje najmä tenká vrstva atmosféra, ktorá nie je schopná udržať tepelnú energiu. Aj preto sa priemerná hodnota teplôt na Marse stanovuje na úroveň -60 °C. Často je počas noci možné badať jav tvorenia mrazu na skalách, ktorý sa následne blížiacim úsvitom mení na paru, čím vzniká vlhkosť v ovzduší. Práve tento jav by v budúcnosti mohol prispieť k tomu, aby sa Mars stal obývateľnejším miestom. 
 Podobne ako na Zemi, aj na Marse môžeme sledovať periodické striedanie štyroch ročných období, nakoľko sa planéta nakláňa okolo svojej osi. Tým, že excentricita planéty je výrazne väčšia ako Zeme, dĺžka ročných období je odlišná. Kým jar je na severnej pologuli najdlhším ročným obdobím s trvaním približne 7 pozemských mesiacov, leto a jesen zhodne trvajú približne 6 zemských mesiacov a zima ako najkratšie obdobie trvá približne 4 pozemské mesiace \cite{mars_meteo1}.
 Každé ročné obdobie však trvá približne dvakrát dlhšie, pretože marťanský rok je približne dvakrát dlhší ako na Zemi. Mars obieha najbližšie k Slnku, keď je jeho južná pologuľa naklonená smerom k nemu, zatiaľ čo severná pologuľa je naklonená k Slnku, keď je od Slnka najďalej. Južné leto je preto oveľa teplejšie ako severné leto. Toto extra teplo prúdiace na južnú pologuľu spôsobuje väčšie turbulencie a poháňa silnejší vietor, ktorý vyvoláva najväčšie búrky. 
@@ -511,11 +512,19 @@ V rámci tejto diplomovej práce sme si zvolili využiť súbor dát získavaný
 \subsubsection{Výber vhodných technológií}
 Po vyhľadaní a príprave súboru dát sme pristúpili k výberu technológii, ktoré sme v projekte použili. Dôležité bolo vybrať si vhodný programovací jazyk a taktiež priestor, v ktorom bude prebiehať samotné trénovanie.
 
-\paragraph{Python}
 
-\paragraph{Jupyter}
+\paragraph{Programovací jazyk} projektu sme si zvolili Python. Medzi výhody, vďaka ktorým je Python najvhodnejší pre strojové učenie a projekty založené na umelej inteligencii patrí jednoduchosť a konzistentnosť, prístup k širokej škále knižníc pre umelú inteligenciu a strojové učenie , flexibilita, nezávislosť na platforme a mohutná komunita. 
+Python má rozsiahlu sadu knižníc určenú pre umelú inteligenciu a strojové učenie. Niektoré z nich, ktoré sme použili aj v našej práci zahŕňajú:
+\begin{itemize}
+    \item Keras, TensorFlow a Scikit-learn pre strojové učenie
+    \item NumPy pre dátovú analýzu
+    \item Pandas pre prácu so súborom dát
+    \item Seaborn pre vizualizáciu dát
+\end{itemize}
+Python zároveň ponúka stručný a čitateľný kód. Zatiaľ čo za technológiou umelej inteligencie stoja zložité algoritmy, jednoduchosť Pythonu nám umožňuje písať ľahko čitateľné časti kódov \cite{python}. 
 
-
+\paragraph{Jupyter} vznikol v snahe vytvoriť interaktívne výpočtové prostredie pre viacero jazykov. Pozostáva z prvkov formátovaného textu, obrázkov, matematických rovníc a kódu samotného. Je schopný spustiť dokument pozostávajúci z blokov kódu v Pythone alebo iných podporných jazykoch. Jupyter notebook je aplikácia typu klient-server. Aplikácia spustí server na lokálnom počítači (alebo vzdiatelný server ak využívame špeciálnu platformu na internete) a otvorí rozhranie notebooku vo webovom prehliadači, kde ju možno upravovať a spúšťať. Notebook je uložený ako súbor ipynb a možno ho exportovať ako súbory html, pdf a LaTex. 
+V rámci tejto diplomovej práce sme zvolili ako vývojové prostredie \href{colab.google.com}{Google Colab}. Colab je produkt od spoločnosti Google Research. Colab umožňuje písať a spúšťať ľubovoľný kód jazyku Python prostredníctvom prehliadači. Je obzvlášť vhodný na strojové učenie alebo analýzu údajov. Colab je hosťovaná služba pre platformu Jupyter, ktorá si nevyžaduje žiadne nastavenie, pričom poskytuje bezplatný prístup k výpočtovým zdrojom vrátane GPU \cite{colab}.
 
 \subsubsection{Úprava súboru dát}
 Na obrázku \ref{dataset} môžeme vidieť náhľad finálneho súboru dát pred spracovaním importovaný do systému Jupyter.
@@ -545,6 +554,8 @@ Môžeme vidieť dokopy 17 stĺpcov údajov, ktorého parametre si postupne opí
     \item YEAR\char`_SOL: Chronologicky zoradené dni v danom roku na Marse.
 \end{itemize}
 
+\paragraph{Hľadanie závislostí} bola jedna z prvých vecí, ktoré sme si dali za úlohu vyriešiť. Ako môžeme vidieť na obrázku \ref{fulldf}, dá sa predpokladať, že priebeh premenných medzi sebou koreluje, teda, jedna premenná obsahuje hodnotu na základe toho, ako sa vyskladajú hodnoty iných premenných. Napríklad, v období okolo 200 dňa (alebo v rámci Marsu solu) môžeme vidieť postupný nárasť teploty. To je spôsobené narastajúcou hodnotou LS, teda postupne sa planéta dostáva do fáze leta. V tomto období môžeme vidieť zvyšovanie parametre VMR čo je sposobené topením ľadovcov a môžeme vidieť priebeh javu zdvíhania sa prachu, ktorý sme opisovali v pod sekcii \ref{rocne_obdobia_mars}. Pre lepšiu orientáciu vidíme na obrázku priebeh dvoch rokov, avšak aj pri pohľade na dlhší časový horizont by sme mohli sledovať podobný trend v rámci správania daných premenných. 
+
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=16cm]{img/full_df.png}
@@ -552,6 +563,31 @@ Môžeme vidieť dokopy 17 stĺpcov údajov, ktorého parametre si postupne opí
   \label{fulldf}
   \captionsource{Zdroj: }{colab.google.com}
 \end{figure}
+
+Ako môžeme vidieť na obrázku \ref{fulldf} súboru dát, mnohé parametre v porovnaní s obrázkom \ref{dataset} chýbajú. Je to kvôli tomu, že dané premenné by nám v rámci predikcii nepomohli, skôr nám boli vhodné počas skladanie súboru dát, kedy sme napríklad za pomoci stĺpca MARTIAN\_MONTH alebo SOL\_IN\_MONTH mohli určiť, či sa zhoduje dĺžka mesiacov a dní (na Marse) s údajmi získaných z prístrojov. Po vylúčení týchto stĺpcov z ďalšieho procesu sme získali nasledujúcu mapu závislostí na obrázku \ref{heatmap}.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/heatmap.png}
+  \caption{Mapa závislostí medzi parametrami.}
+  \label{heatmap}
+  \captionsource{Zdroj: }{colab.google.com}
+\end{figure}
+
+Vidíme, že mnoho závislostí medzi premennými dosahuje významné hodnoty, či už priamo úmerne alebo nepriamo úmerne. Čím viac hodnota inklinuje k hodnoty 1 (respektíve -1), tým viac je závislá na porovnávanej hodnote. Môžeme vidieť napríklad vysokú priamo úmernú závislosť medzi parametrom P\_min a P\_max, čo je samozrejme aj pochopiteľné, nakoľko oba parametre vyjadrujú priebeh tlaku. Naopak, vidíme vysokú mieru nepriamo úmernej závislosti medzi parametrom T\_max a RH\_min. Opäť ide o niečo, čo sa dá ľahko vyčítať aj z obrázka \ref{fulldf}, kde vidíme, že čím je hodnota maximálnej teploty vyššia, hodnota vlhkosti klesá.
+
+Najväčšie prekvapenie, ktoré nás v danej práci zaujalo bol parameter LS, s ktorým sme rátali ako s nosným parametrom súboru dát, nakoľko vidíme jeho závislosť takmer pri každom ďalšom parametri. Toto naše prekvapenie spočívalo ale v zlom pochopení správania hlbokého učenia, respektíve v zlom poňatí toho, čo chceme, aby sme predpovedali. Na obrázku \ref{ls_error} môžeme vidieť priebeh skutočných meraní (modrá farba) voči predpovedaným hodnotám (oranžová farba). Dôvodom tohto skreslenia je fakt, že model sa učil na časovom úseku 180 dní aby predpovedal 60 dní. V takomto časovom úseku hodnota LS neustále lineárne stúpa, preto aj predikované hodnoty teploty v čase kontinuálne stúpajú. Z tohto dôvodu sme boli nútení tento parameter zo súboru dát vylúčiť.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=10cm]{img/ls_error.png}
+  \caption{Chyba pri práci so súborom dát, ak súbor obsahoval parameter LS.}
+  \label{ls_error}
+  \captionsource{Zdroj: }{colab.google.com}
+\end{figure}
+
+\newpage
+Súčasťou čistenia dát bolo aj mazanie hodnôt, ktoré boli identifikované ako extrémne. Za týmto účelom sme použili krátku časť kódu na obrázku \ref{cleandf}, kde vidíme nastavenie kvantilov na hodnoty pod 25 \% a na 75 \%. Všetky hodnoty prekračujúce tieto percentuálne hodnoty sme vyhodnotili ako extrémne a teda vymazali zo súboru dát.
 
 \begin{figure}[!htbp]
   \centering
@@ -561,6 +597,8 @@ Môžeme vidieť dokopy 17 stĺpcov údajov, ktorého parametre si postupne opí
   \captionsource{Zdroj: }{colab.google.com}
 \end{figure}
 
+Na záver čistenia dát sme skontrolovali hodnoty nachádzajúce sa v súbore dát a ich počty, výsledok môžeme vidieť na obrázku \ref{dfdesc}. 
+
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=16cm]{img/df_desc.png}
@@ -569,32 +607,46 @@ Môžeme vidieť dokopy 17 stĺpcov údajov, ktorého parametre si postupne opí
   \captionsource{Zdroj: }{colab.google.com}
 \end{figure}
 
+\newpage
+Pre lepšie pochopenie a zobrazenie pojmov sme si vykreslili aj špeciálny graf vývoja maximálnych mesačný teplôt na Marse v trvaní 2 roky. Na obrázku \ref{bar_plot} môžeme vidieť maximálne hodnoty, minimálne hodnoty a priemerné hodnoty. 
+
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=16cm]{img/monthly_temp.png}
   \caption{Priebeh teploty v mesiacoch v 2 rokoch na Marse.}
-  \label{dfdesc}
+  \label{bar_plot}
   \captionsource{Zdroj: }{colab.google.com}
 \end{figure}
-
-\paragraph{Hľadanie závislostí} budem opisovat v tejto casti
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=8cm]{img/heatmap.png}
-  \caption{Mapa závislostí medzi parametrami.}
-  \label{heatmap}
-  \captionsource{Zdroj: }{colab.google.com}
-\end{figure}
-
-
-
 
 \newpage
 
 \subsubsection{Výber premennej, ktorú chceme predikovať a závislé premenné}
+Ďalším krokom k príprave dát na fázu trénovania bol výber premennej, ktorú chcem predikovať a zároveň závislé premenné, ktoré ovplyvňujú danú premennú a jej vývoj. Našou predpovedanou premennou sa stal parameter T\_max, teda maximálna denná teplota na povrchu Marsu v mieste merania. Dôvod výberu bol najmä ten, že práve teplota je pre ľudí najdôležitejší údaj, ak si chcú spraviť obraz o počasí či už na našej planéte alebo aj kdekoľvek vo vesmíre. Samozrejme, predpovedaný parameter by sa dal ľubovoľne zameniť za iný, v rámci procesu prípravy súboru dát na trénovanie by šlo o jednoduchú úpravu, kedy by sme zamenili stĺpec v súbore dát za iný, žiadaný parameter na predpovedanie. 
+Po určení predpovedanej premennej prišiel na rad výber závislých premenných. Ako sme mohli vidieť na obrázku \ref{heatmap}, maximálnu teplotu na Marse z pohľadu iných parametrov najviac ovplyvňuje parameter VMR\_min, VMR\_max, RH\_min a RH\_max. K týmto štyrom parametrom sme pridali aj tri ďalšie, menej ovplyvňujúce ale stále významné parametre, T\_min, P\_min a P\_max. Takto pripravený súbor dát sme mohli použiť v ďalšom procese a teda príprave dát na fázu trénovania.
+
 \subsubsection{Príprava dát na fázu trénovania}
+\label{priprava_dat}
+Trénovací proces spočíval v použití minulých hodnôt na predpovedanie budúcnosti. Pre sekvenčné modelovanie sme si zvolili implementáciu rekurentnej neurónovej siete balíka tensorflow s vrstvou LSTM. Vstupom do siete LSTM je 3D pole (vzorky, časové kroky, vlastnosti), pričom:
+\begin{itemize}
+    \item vzorky — celkový počet sekvencií vytvorených na výcvik.
+    \item časové kroky — dĺžka vzoriek.
+    \item vlastnosti — počet použitých funkcií.
+\end{itemize}
+
+Pred modelovaním je nutné previesť 2D údaje do 3D poľa. Po konverzii získavame pole (1297, 7, 8). Ako môžeme vidieť hodnota vzoriek sa znížila o 8, čo je hodnota tretej dimenzie. Následne môžeme toto pole interpretovať tak, že máme 1297 pozorovaní, každé so 7 riadkami údajov na predikciu a 8 stĺpcami. Existuje o 8 pozorovaní menej vo vzorkách, pretože prvých 7 vzoriek sa vypustí z dôvodu oneskorenia a keďže predpovedáme o 1 krok dopredu, stratí sa aj posledné pozorovanie.
+
+Nasleduje rozdelenie súboru dát na trénovaciu a validačnú množinu. Veľkosť validačnej množiny zároveň určuje počet predikovaných dní. Finálne množiny sú potom opísané na obrázku \ref{mnoziny}.
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=8cm]{img/mnoziny.png}
+  \caption{Rozdelenie trénovacej a validačnej množiny.}
+  \label{mnoziny}
+\end{figure}
+
+Po tomto procese prípravy sa každé trénovanie vyznačovalo špecifickými krokmi. Preto ich budeme postupne vysvetľovať a opisovať v nasledujúcej časti práce.
 
 \subsection{Čiastočné výsledky}
+V tejto pod sekcii si popíšeme spôsob prípravy modelu a pripojenie súboru dát k danému modelu tak, aby bol proces trénovania čo najefektívnejší. Budeme prezentovať prístupy, ktoré sme si zvolili pri testovaní rôznych modelov, mnohé z prístupov sme opustili, nakoľko nespĺňali naše požiadavky, napriek tomu sme niektoré výsledky uviedli v práci, nakoľko nás aj tieto chybné smerovania naučili niečomu novému, čo sme mohli zapracovať k novším prístupom a nakoniec aj k finálnemu výsledku, ktorý je opísaný v poslednej pod sekcii práce.
 
 \subsubsection{Plne prepojený model} 
 \subsubsection{LSTM model} 
@@ -669,7 +721,7 @@ Vo finálnom modeli sme využili architektúru viacrozmerného LSTM modelu, ktor
   \caption{Súbor dát pripravený na ďalšie spracovanie.}
   \label{dest_abs_error}
 \end{figure}
-\newpage
+
 V rámci prípravy sme po vyčistení súboru získali dokopy 1297 jedinečných údajov, čo predstavuje približne 2 roky na Marse. Graf vývoja hodnôt môžeme vidieť na nasledujúcom obrázku \ref{features1}.
 \begin{figure}[!htbp]
   \centering
@@ -678,22 +730,7 @@ V rámci prípravy sme po vyčistení súboru získali dokopy 1297 jedinečných
   \label{features1}
 \end{figure}
 
-\paragraph{Trénovací proces} spočíval v použití minulých hodnôt na predpovedanie budúcnosti. Pre sekvenčné modelovanie sme si zvolili implementáciu rekurentnej neurónovej siete balíka tensorflow s vrstvou LSTM. Vstupom do siete LSTM je 3D pole (vzorky, časové kroky, vlastnosti), pričom:
-\begin{itemize}
-    \item vzorky — celkový počet sekvencií vytvorených na výcvik.
-    \item časové kroky — dĺžka vzoriek.
-    \item vlastnosti — počet použitých funkcií.
-\end{itemize}
-
-Pred modelovaním je nutné previesť 2D údaje do 3D poľa. Po konverzii získavame pole (1297, 7, 8). Ako môžeme vidieť hodnota vzoriek sa znížila o 8, čo je hodnota tretej dimenzie. Následne môžeme toto pole interpretovať tak, že máme 1297 pozorovaní, každé so 7 riadkami údajov na predikciu a 8 stĺpcami. Existuje o 8 pozorovaní menej vo vzorkách, pretože prvých 7 vzoriek sa vypustí z dôvodu oneskorenia a keďže predpovedáme o 1 krok dopredu, stratí sa aj posledné pozorovanie.
-
-Nasleduje rozdelenie súboru dát na trénovaciu a validačnú množinu. Veľkosť validačnej množiny zároveň určuje počet predikovaných dní. Finálne množiny sú potom opísané na obrázku \ref{mnoziny}.
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=8cm]{img/mnoziny.png}
-  \caption{Rozdelenie trénovacej a validačnej množiny.}
-  \label{mnoziny}
-\end{figure}
+\paragraph{Trénovací proces} použitý aj v príprave tohto modelu sme si opísali v časti \ref{priprava_dat}.
 
 Po príprave dát pristupujeme k samotnému trénovaniu modelu, ktorý môžeme vidieť na obrázku \ref{model}. 
 
@@ -727,7 +764,7 @@ Následne môžeme dáta vizualizovať vo výsledkoch na obrázku \ref{predpoved
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=14cm]{img/predpoved_T_max.png}
-  \caption{Graf predpovede parametra Tmax na 129 dní.}
+  \caption{Graf predpovede parametra T\_max na 129 dní.}
   \label{predpoved}
 \end{figure}
 
@@ -749,17 +786,18 @@ Hodnotu distribúcie absolútnych chýb je možné vidieť na obrázku \ref{dest
   \label{dest_abs_error}
 \end{figure}
 
-\newpage
-Výsledné hodnoty odchýlky voči reálnemu meraniu mám zobrazené v nasledujúcej tabuľke \ref{tab_chyby}.
-\newline
-\begin{table}[]
+
+Výsledné hodnoty odchýlky voči reálnemu meraniu máme zobrazené v nasledujúcej tabuľke \ref{tab_chyby}.
+
+\begin{table}[!htbp]
 \caption{Výsledné parametre hodnôt}
+\centering
 \label{tab_chyby}
-\begin{tabular}{ll}
-Počet predpovedaných dní: & 129       \\
-Stredná hodnota chyby:    & 2.336213 K  \\
-Priemerná hodnota chyby:  & 2.224387 K  \\
-Minimálna hodnota chyby:  & 0.048517 K  \\
-Maximálna hodnota chyby:  & 14.580717 K
+\begin{tabular}{|l|l|} \hline
+Počet predpovedaných dní: & 129         \\ \hline
+Stredná hodnota chyby:    & 2.336213 K  \\ \hline
+Priemerná hodnota chyby:  & 2.224387 K  \\ \hline
+Minimálna hodnota chyby:  & 0.048517 K  \\ \hline
+Maximálna hodnota chyby:  & 14.580717 K \\ \hline
 \end{tabular}
 \end{table}
